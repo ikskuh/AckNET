@@ -48,6 +48,8 @@
     <Compile Include="EngineVars.cs" />
     <Compile Include="EngineVars.Generated.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Material.cs" />
+    <Compile Include="Native\NativeMethods.cs" />
     <Compile Include="Primitives.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

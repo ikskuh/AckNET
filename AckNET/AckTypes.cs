@@ -3,139 +3,6 @@ namespace AckNET
 	using System;
 	using System.Runtime.InteropServices;
 
-	partial class EngineObject
-	{
-		protected void CheckValid()
-		{
-			if (InternalPointer == IntPtr.Zero)
-				throw new InvalidOperationException("Cannot use engine vars with uninitialized engine.");
-		}
-
-		protected ackvar GetVar(int offset)
-		{
-			CheckValid();
-			return new ackvar(Marshal.ReadInt32(InternalPointer + offset));
-		}
-		protected void SetVar(int offset, ackvar @var)
-		{
-			CheckValid();
-			Marshal.WriteInt32(InternalPointer + offset, @var.RawValue);
-		}
-
-		protected Vector GetVector(int offset)
-		{
-			CheckValid();
-			return new Vector(
-				GetVar(offset + 0),
-				GetVar(offset + 4),
-				GetVar(offset + 8));
-		}
-
-		protected void SetVector(int offset, Vector value)
-		{
-			CheckValid();
-			SetVar(offset + 0, value.X);
-			SetVar(offset + 4, value.Y);
-			SetVar(offset + 8, value.Z);
-		}
-		protected Angle GetAngle(int offset)
-		{
-			CheckValid();
-			return new Angle(
-				GetVar(offset + 0),
-				GetVar(offset + 4),
-				GetVar(offset + 8));
-		}
-
-		protected void SetAngle(int offset, Angle value)
-		{
-			CheckValid();
-			SetVar(offset + 0, value.Pan);
-			SetVar(offset + 4, value.Tilt);
-			SetVar(offset + 8, value.Roll);
-		}
-
-		protected Color GetColor(int offset)
-		{
-			CheckValid();
-			// Note: rgb constructor, bgr layout!
-			return new Color(
-				GetVar(offset + 8),
-				GetVar(offset + 4),
-				GetVar(offset + 0));
-		}
-
-		protected void SetColor(int offset, Color value)
-		{
-			CheckValid();
-			SetVar(offset + 0, value.Blue);
-			SetVar(offset + 4, value.Green);
-			SetVar(offset + 8, value.Red);
-		}
-
-		protected int GetInt(int offset)
-		{
-			CheckValid();
-			return Marshal.ReadInt32(InternalPointer + offset);
-		}
-		protected void SetInt(int offset, int @var)
-		{
-			CheckValid();
-			Marshal.WriteInt32(InternalPointer + offset, @var);
-		}
-
-		protected float GetFloat(int offset)
-		{
-			CheckValid();
-			return BitConverter.ToSingle(BitConverter.GetBytes(Marshal.ReadInt32(InternalPointer + offset)), 0);
-		}
-		protected void SetFloat(int offset, float @var)
-		{
-			CheckValid();
-			Marshal.WriteInt32(InternalPointer + offset, BitConverter.ToInt32(BitConverter.GetBytes(@var), 0));
-		}
-
-		protected Entity GetEntity(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new Entity(dref);
-			else
-				return null;
-		}
-		protected void SetEntity(int offset, Entity ent)
-		{
-			CheckValid();
-			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
-		}
-
-		protected IntPtr GetPtr(int offset)
-		{
-			CheckValid();
-			return Marshal.ReadIntPtr(InternalPointer + offset);
-		}
-		protected void SetPtr(int offset, IntPtr ptr)
-		{
-			CheckValid();
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
-		}
-		protected string GetString(int offset)
-		{
-			CheckValid();
-			return Marshal.PtrToStringAnsi(GetPtr(offset));
-		}
-
-		protected void SetEvent(int offset, EngineEventDelegate @event)
-		{
-			IntPtr ptr = IntPtr.Zero;
-			if (@event != null)
-				ptr = Marshal.GetFunctionPointerForDelegate(@event);
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
-		}
-	}
-
 	partial class Entity
 	{
 		public string Type { get { return GetString(12); } }
@@ -224,7 +91,7 @@ namespace AckNET
 		public ackvar Pose { get { return GetVar(548); } set { SetVar(548, value); } }
 
 		// TODO: Change to Material
-		public ackvar Material { get { return GetVar(552); } set { SetVar(552, value); } }
+		public Material Material { get { return GetMaterial(552); } set { SetMaterial(552, value); } }
 
 		public ackvar U { get { return GetVar(556); } set { SetVar(556, value); } }
 
@@ -319,5 +186,64 @@ namespace AckNET
 			var clipfactor; // -> 640
 		} ENTITY;
 		*/
+	}
+
+	partial class Material
+	{
+		public Color Ambient { get { return GetColor(12); } set { SetColor(12, value); } }
+		public ackvar AmbientBlue { get { return GetVar(12); } set { SetVar(12, value); } }
+		public ackvar AmbientGreen { get { return GetVar(16); } set { SetVar(16, value); } }
+		public ackvar AmbientRed { get { return GetVar(20); } set { SetVar(20, value); } }
+
+		public Color Diffuse { get { return GetColor(24); } set { SetColor(24, value); } }
+		public ackvar DiffuseBlue { get { return GetVar(24); } set { SetVar(24, value); } }
+		public ackvar DiffuseGreen { get { return GetVar(28); } set { SetVar(28, value); } }
+		public ackvar DiffuseRed { get { return GetVar(32); } set { SetVar(32, value); } }
+
+		public Color Specular { get { return GetColor(36); } set { SetColor(36, value); } }
+		public ackvar SpecularBlue { get { return GetVar(36); } set { SetVar(36, value); } }
+		public ackvar SpecularGreen { get { return GetVar(40); } set { SetVar(40, value); } }
+		public ackvar SpecularRed { get { return GetVar(44); } set { SetVar(44, value); } }
+
+		public Color Emissive { get { return GetColor(48); } set { SetColor(48, value); } }
+		public ackvar EmissiveBlue { get { return GetVar(48); } set { SetVar(48, value); } }
+		public ackvar EmissiveGreen { get { return GetVar(52); } set { SetVar(52, value); } }
+		public ackvar EmissiveRed { get { return GetVar(56); } set { SetVar(56, value); } }
+
+		public Color Map { get { return GetColor(60); } set { SetColor(60, value); } }
+		public ackvar MapBlue { get { return GetVar(60); } set { SetVar(60, value); } }
+		public ackvar MapGreen { get { return GetVar(64); } set { SetVar(64, value); } }
+		public ackvar MapRed { get { return GetVar(68); } set { SetVar(68, value); } }
+		public ackvar Alpha { get { return GetVar(72); } set { SetVar(72, value); } }
+		public ackvar Power { get { return GetVar(76); } set { SetVar(76, value); } }
+		public ackvar Albedo { get { return GetVar(80); } set { SetVar(80, value); } }
+		public ackvar Scale1 { get { return GetVar(84); } set { SetVar(84, value); } }
+		public ackvar Scale2 { get { return GetVar(88); } set { SetVar(88, value); } }
+		public ackvar Cycle { get { return GetVar(92); } set { SetVar(92, value); } }
+		public ackvar this[int skill] { get { return GetVar(96); } set { SetVar(96 + 4 * skill, value); } }
+
+		// TODO: Implement matrix
+		//public Matrix4x4 Matrix { get { return GetMatrix(100); } set { SetMatrix(100, value); } }
+
+		public int Flags { get { return GetInt(104); } set { SetInt(104, value); } }
+
+		// TODO: Implement "set" string
+		public string effect { get { return GetString(108); } /* set { SetVar(108, value); } */ }
+		public ackvar Lod { get { return GetVar(112); } set { SetVar(112, value); } }
+
+		// TODO: Implement get/set materials
+		//public ackBMAP* skin1 { get { return GetVar(116); } set { SetVar(116, value); } }
+		//public ackBMAP* skin2 { get { return GetVar(120); } set { SetVar(120, value); } }
+		//public ackBMAP* skin3 { get { return GetVar(124); } set { SetVar(124, value); } }
+		//public ackBMAP* skin4 { get { return GetVar(128); } set { SetVar(128, value); } }
+
+		EngineEventDelegate @event;
+		public EngineEventDelegate Event { get { return @event; } set { @event = value; SetEvent(132, @event); } }
+		public IntPtr D3deffect { get { return GetPtr(136); } set { SetPtr(136, value); } }
+		public IntPtr D3dmaterial { get { return GetPtr(140); } set { SetPtr(140, value); } }
+
+		// TODO: Implement "set" string
+		public string Technique { get { return GetString(144); } /* set { SetVar(144, value); } */ }
+		public ackvar Maxbones { get { return GetVar(148); } set { SetVar(148, value); } }
 	}
 }

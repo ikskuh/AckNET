@@ -1753,26 +1753,37 @@ namespace AckNET
 		public static IntPtr RenderMesh { get { return GetPtr(2384); } set { SetPtr(2384, value); } }
 
 		// ENGINE_MATERIAL mtl;
+		public static Material Mtl { get { return GetMaterial(2388); } set { SetMaterial(2388, value); } }
 
 		// ENGINE_MATERIAL mtl_flat;
+		public static Material MtlFlat { get { return GetMaterial(2392); } set { SetMaterial(2392, value); } }
 
 		// ENGINE_MATERIAL mtl_shaded;
+		public static Material MtlShaded { get { return GetMaterial(2396); } set { SetMaterial(2396, value); } }
 
 		// ENGINE_MATERIAL mtl_model;
+		public static Material MtlModel { get { return GetMaterial(2400); } set { SetMaterial(2400, value); } }
 
 		// ENGINE_MATERIAL mtl_terrain;
+		public static Material MtlTerrain { get { return GetMaterial(2404); } set { SetMaterial(2404, value); } }
 
 		// ENGINE_MATERIAL mtl_sprite;
+		public static Material MtlSprite { get { return GetMaterial(2408); } set { SetMaterial(2408, value); } }
 
 		// ENGINE_MATERIAL mtl_particle;
+		public static Material MtlParticle { get { return GetMaterial(2412); } set { SetMaterial(2412, value); } }
 
 		// ENGINE_MATERIAL mtl_metal;
+		public static Material MtlMetal { get { return GetMaterial(2416); } set { SetMaterial(2416, value); } }
 
 		// ENGINE_MATERIAL mtl_sky;
+		public static Material MtlSky { get { return GetMaterial(2420); } set { SetMaterial(2420, value); } }
 
 		// ENGINE_MATERIAL mtl_shadow;
+		public static Material MtlShadow { get { return GetMaterial(2424); } set { SetMaterial(2424, value); } }
 
 		// ENGINE_MATERIAL mtl_unlit;
+		public static Material MtlUnlit { get { return GetMaterial(2428); } set { SetMaterial(2428, value); } }
 
 		// ENGINE_STRING debug_str;
 
@@ -1824,6 +1835,7 @@ namespace AckNET
 		public static IntPtr RenderD3dxeffect { get { return GetPtr(2520); } set { SetPtr(2520, value); } }
 
 		// ENGINE_MATERIAL render_material;
+		public static Material RenderMaterial { get { return GetMaterial(2524); } set { SetMaterial(2524, value); } }
 
 		// ENGINE_BMAP render_target;
 

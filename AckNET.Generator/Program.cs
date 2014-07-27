@@ -11,8 +11,147 @@ namespace AckNET.Generator
 	{
 		static void Main(string[] args)
 		{
+			//GenerateFunctions();
 			GenerateEngineVars();
-        }
+		}
+
+		static void GenerateFunctions()
+		{
+			var lines = File.ReadAllText(@"C:\Program Files (x86)\GStudio8\sdk_engine\afuncs2.h").Split(';');
+			for (int i = 0; i < lines.Length; i++)
+			{
+				lines[i] = Regex.Replace(lines[i].Trim(), @"\s+", " ");
+            }
+
+			using (var writer = new StreamWriter(@"D:\AckNET\AckNET\Native\NativeMethods.cs"))
+			{
+				writer.WriteLine("using System;");
+				writer.WriteLine("using System.Runtime.InteropServices;");
+				writer.WriteLine("namespace AckNET.Native");
+				writer.WriteLine("{");
+				writer.WriteLine("\tpublic static class NativeMethods");
+				writer.WriteLine("\t{");
+
+				foreach(var line in lines)
+				{
+					var parts = line.Split(new[] { ' ',',', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+					if (parts.Length < 2) continue;
+
+					writer.WriteLine("\t\t"+ @"[DllImport(""acknex.dll"", EntryPoint=""{0}"", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]", parts[1]);
+
+					bool isPointered;
+					string returnType = MapResultType(parts[0], out isPointered);
+					if(isPointered)
+					{
+						writer.Write("\t\t");
+						writer.WriteLine("[return : MarshalAs(UnmanagedType.LPStruct)]");
+					}
+
+					writer.Write("\t\t");
+					writer.Write("public static extern {0} {1}(",
+						returnType,
+						FixName(parts[1]));
+
+					for (int i = 2; i < parts.Length; i++)
+					{
+						if (parts[i] == "void")
+							continue;
+						writer.Write(MapParamType(parts[i]));
+						writer.Write(" ");
+                        writer.Write("param{0}", i - 2);
+
+						if (i < parts.Length - 1)
+							writer.Write(", ");
+					}
+
+					writer.WriteLine(");");
+					writer.WriteLine();
+				}
+
+
+				writer.WriteLine("\t}");
+				writer.WriteLine("}");
+
+			}
+		}
+
+		static string MapResultType(string input, out bool isPointered)
+		{
+			isPointered = false;
+			switch(input)
+			{
+				case "var": return "ackvar";
+				case "VECTOR*":
+					isPointered = true;
+					return "Vector";
+				case "ANGLE*":
+					isPointered = true;
+					return "Angle";
+				case "COLOR*":
+					isPointered = true;
+					return "Color";
+				case "VIEW*":
+				case "BMAP*":
+				case "ENTITY*":
+				case "SOUND*":
+				case "MATERIAL*":
+				case "PARTICLE*":
+				case "CONTACT*":
+				case "STRING*":
+				case "FONT*":
+				case "PANEL*":
+				case "TEXT*":
+				case "ENGINE_VARS*":
+                case "void*":
+				case "void**":
+				case "void***":
+					return "IntPtr";
+				case "char*": return "string";
+				default:
+					return input;
+			}
+		}
+		static string MapParamType(string input)
+		{
+			switch (input)
+			{
+				case "var": return "ackvar";
+				case "VECTOR*":
+					return "ref Vector";
+				case "ANGLE*":
+					return "ref Angle";
+				case "COLOR*":
+					return "ref Color";
+				case "VIEW*":
+				case "BMAP*":
+				case "ENTITY*":
+				case "SOUND*":
+				case "FONT*":
+				case "CONTACT*":
+				case "PANEL*":
+				case "MATERIAL*":
+				case "TEXT*":
+				case "STRING*":
+				case "void*":
+				case "void**":
+				case "void***":
+					return "IntPtr";
+				case "ENTITY**":
+					return "ref IntPtr";
+				case "DWORD":
+					return "int";
+                case "long*":
+					return "ref int";
+				case "EVENT":
+					return "IntPtr";
+				case "var*":
+					return "ref ackvar";
+				case "char*":return "string";
+				case "char**": return "IntPtr";
+				default:
+					return input;
+			}
+		}
 
 		static void GenerateEngineVars()
 		{
@@ -83,7 +222,10 @@ namespace AckNET.Generator
 
 							break;
 						case "ENGINE_MATERIAL":
-
+							writer.WriteLine(
+								"\t\tpublic static Material {0} {{ get {{ return GetMaterial({1}); }} set {{ SetMaterial({1}, value); }} }}",
+								 FixName(parts[1]),
+								 ptrOffset);
 							break;
 						case "ENGINE_STRING":
 

@@ -10,16 +10,21 @@ namespace AckNET.Test
 	{
 		static void Main(string[] args)
 		{
-			Acknex.Open("-nx 200 cargo.mdl");
+			Acknex.Open("-nx 200");
 			Console.WriteLine("Using version {0}", EngineVars.Version);
 
 			OnTab = (x) => { Console.WriteLine("Pressed [TAB]"); return 0; };
 			MouseMode = 3;
+
+			Level.Load("");
+
+			Entity ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
+
 			while (Acknex.Frame())
 			{
-				if (MouseEnt != null)
+				if (ent == EngineVars.MouseEnt)
 				{
-					MouseEnt.Position += new Vector(0, 0, (1 - 2 * (int)MouseLeft) * TimeStep);
+					ent.Pan += 1.5 * TimeStep;
 				}
 				if ((bool)MouseLeft)
 				{

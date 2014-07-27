@@ -33,6 +33,21 @@ namespace AckNET
 			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
 			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
 		}
+		private static Material GetMaterial(int offset)
+		{
+			CheckValid();
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			if (dref != IntPtr.Zero)
+				return new Material(dref);
+			else
+				return null;
+		}
+		private static void SetMaterial(int offset, Material ent)
+		{
+			CheckValid();
+			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
+			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
+		}
 
 		private static IntPtr GetPtr(int offset)
 		{

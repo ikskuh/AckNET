@@ -58,6 +58,11 @@ namespace AckNET
 		{
 			return Multiply(a, b);
 		}
+
+		public override string ToString()
+		{
+			return string.Format("({0}; {1}; {2})", X, Y, Z);
+		}
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -73,6 +78,10 @@ namespace AckNET
 			this.Blue = blue;
 			this.Green = green;
 		}
+		public override string ToString()
+		{
+			return string.Format("[{0}; {1}; {2}]", Red, Green, Blue);
+		}
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -87,6 +96,10 @@ namespace AckNET
 			this.Pan = pan;
 			this.Tilt = tilt;
 			this.Roll = roll;
+		}
+		public override string ToString()
+		{
+			return string.Format("{{{0}; {1}; {2}}}", Pan, Tilt, Roll);
 		}
 	}
 }

@@ -5,15 +5,15 @@ using System.Text;
 
 namespace AckNET
 {
-	public sealed partial class Entity : EngineObject
+	public partial class Material : EngineObject
 	{
-		public Entity(string fileName, Vector position)
-			 : base(true)
+		public Material()
+			: base(true)
 		{
-			this.InternalPointer = AckNET.Native.NativeMethods.EntCreate(fileName, ref position, IntPtr.Zero);
+
 		}
 
-		public Entity(IntPtr reference)
+		public Material(IntPtr reference)
 			: base(false)
 		{
 			if (reference == IntPtr.Zero)
