@@ -314,8 +314,8 @@ namespace AckNET.Native
 		[DllImport("acknex.dll", EntryPoint="str_remove", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar StrRemove(IntPtr param0);
 
-		//[DllImport("acknex.dll", EntryPoint="str_cpy", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		//public static extern IntPtr StrCpy(IntPtr param0, string param1);
+		[DllImport("acknex.dll", EntryPoint = "str_cpy", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+		public static extern IntPtr StrCpy(IntPtr param0, string param1);
 
 		//[DllImport("acknex.dll", EntryPoint="str_cat", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		//public static extern IntPtr StrCat(IntPtr param0, string param1);

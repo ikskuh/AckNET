@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acknex.cs" />
+    <Compile Include="AckString.cs" />
     <Compile Include="AckTypes.cs" />
     <Compile Include="ackvar.cs" />
     <Compile Include="Bitmap.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="EngineVars.cs" />
     <Compile Include="EngineVars.Generated.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Font.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Native\NativeMethods.cs" />
     <Compile Include="Primitives.cs" />

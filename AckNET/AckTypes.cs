@@ -327,4 +327,21 @@ namespace AckNET
 		public IntPtr Buffer { get { return GetPtr(16); } set { SetPtr(16, value); } }
 		public int Type { get { return GetInt(20); } set { SetInt(20, value); } }
 	}
+
+	partial class AckString
+	{
+		public string Chars { get { return GetString(12); } }
+		public int Length { get { return GetInt(16); } set { SetInt(16, value); } }
+		public int Flags { get { return GetInt(20); } set { SetInt(20, value); } }
+	}
+
+	partial class Font
+	{
+		public int Dx { get { return GetInt(12); } set { SetInt(12, value); } }
+		public int Dy { get { return GetInt(16); } set { SetInt(16, value); } }
+		public int Num { get { return GetInt(20); } set { SetInt(20, value); } }
+		public int Cpl { get { return GetInt(24); } set { SetInt(24, value); } }
+		public string Type { get { return GetString(28); } }
+		public Bitmap Bmap { get { return GetBitmap(32); } set { SetObject(32, value); } }
+	}
 }
