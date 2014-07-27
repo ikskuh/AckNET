@@ -17,6 +17,12 @@ namespace AckNET
 			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
 			Marshal.WriteInt32(dref, @var.RawValue);
 		}
+		private static void SetObject(int offset, EngineObject ent)
+		{
+			CheckValid();
+			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
+			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
+		}
 
 		private static Entity GetEntity(int offset)
 		{
@@ -27,12 +33,6 @@ namespace AckNET
 			else
 				return null;
 		}
-		private static void SetEntity(int offset, Entity ent)
-		{
-			CheckValid();
-			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
-		}
 		private static Material GetMaterial(int offset)
 		{
 			CheckValid();
@@ -42,11 +42,14 @@ namespace AckNET
 			else
 				return null;
 		}
-		private static void SetMaterial(int offset, Material ent)
+		private static View GetView(int offset)
 		{
 			CheckValid();
-			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			if (dref != IntPtr.Zero)
+				return new View(dref);
+			else
+				return null;
 		}
 
 		private static IntPtr GetPtr(int offset)

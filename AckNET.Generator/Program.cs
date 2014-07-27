@@ -211,19 +211,22 @@ namespace AckNET.Generator
 							break;
 						case "ENGINE_ENTITY":
 							writer.WriteLine(
-								"\t\tpublic static Entity {0} {{ get {{ return GetEntity({1}); }} set {{ SetEntity({1}, value); }} }}",
+								"\t\tpublic static Entity {0} {{ get {{ return GetEntity({1}); }} set {{ SetObject({1}, value); }} }}",
 								 FixName(parts[1]),
 								 ptrOffset);
 							break;
 						case "ENGINE_VIEW":
-
+							writer.WriteLine(
+								"\t\tpublic static View {0} {{ get {{ return GetView({1}); }} set {{ SetObject({1}, value); }} }}",
+								 FixName(parts[1]),
+								 ptrOffset);
 							break;
 						case "ENGINE_BMAP":
 
 							break;
 						case "ENGINE_MATERIAL":
 							writer.WriteLine(
-								"\t\tpublic static Material {0} {{ get {{ return GetMaterial({1}); }} set {{ SetMaterial({1}, value); }} }}",
+								"\t\tpublic static Material {0} {{ get {{ return GetMaterial({1}); }} set {{ SetObject({1}, value); }} }}",
 								 FixName(parts[1]),
 								 ptrOffset);
 							break;

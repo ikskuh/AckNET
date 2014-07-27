@@ -91,7 +91,7 @@ namespace AckNET
 		public ackvar Pose { get { return GetVar(548); } set { SetVar(548, value); } }
 
 		// TODO: Change to Material
-		public Material Material { get { return GetMaterial(552); } set { SetMaterial(552, value); } }
+		public Material Material { get { return GetMaterial(552); } set { SetObject(552, value); } }
 
 		public ackvar U { get { return GetVar(556); } set { SetVar(556, value); } }
 
@@ -128,9 +128,9 @@ namespace AckNET
 		public IntPtr Model { get { return GetPtr(608); } set { SetPtr(608, value); } }
 
 
-		public Entity Shadow { get { return GetEntity(612); } set { SetEntity(612, value); } }
+		public Entity Shadow { get { return GetEntity(612); } set { SetObject(612, value); } }
 
-		public Entity Parent { get { return GetEntity(616); } set { SetEntity(616, value); } }
+		public Entity Parent { get { return GetEntity(616); } set { SetObject(616, value); } }
 
 		// TODO: Change to Bmap
 		public ackvar Lightmap { get { return GetVar(620); } set { SetVar(620, value); } }
@@ -245,5 +245,56 @@ namespace AckNET
 		// TODO: Implement "set" string
 		public string Technique { get { return GetString(144); } /* set { SetVar(144, value); } */ }
 		public ackvar Maxbones { get { return GetVar(148); } set { SetVar(148, value); } }
+	}
+
+	partial class View
+	{
+		public int Type { get { return GetInt(12); } set { SetInt(12, value); } }
+		public ackvar Layer { get { return GetVar(16); } set { SetVar(16, value); } }
+		public ackvar PosX { get { return GetVar(20); } set { SetVar(20, value); } }
+		public ackvar PosY { get { return GetVar(24); } set { SetVar(24, value); } }
+		public int Flags { get { return GetInt(28); } set { SetInt(28, value); } }
+		public ackvar SizeX { get { return GetVar(32); } set { SetVar(32, value); } }
+		public ackvar SizeY { get { return GetVar(36); } set { SetVar(36, value); } }
+		public ackvar X { get { return GetVar(40); } set { SetVar(40, value); } }
+		public ackvar Y { get { return GetVar(44); } set { SetVar(44, value); } }
+		public ackvar Z { get { return GetVar(48); } set { SetVar(48, value); } }
+		public ackvar Pan { get { return GetVar(52); } set { SetVar(52, value); } }
+		public ackvar Tilt { get { return GetVar(56); } set { SetVar(56, value); } }
+		public ackvar Roll { get { return GetVar(60); } set { SetVar(60, value); } }
+		public ackvar OffsetX { get { return GetVar(64); } set { SetVar(64, value); } }
+		public ackvar OffsetY { get { return GetVar(68); } set { SetVar(68, value); } }
+		public ackvar Arc { get { return GetVar(72); } set { SetVar(72, value); } }
+		public ackvar Aspect { get { return GetVar(76); } set { SetVar(76, value); } }
+		public ackvar Ambient { get { return GetVar(80); } set { SetVar(80, value); } }
+		public ackvar Bg { get { return GetVar(84); } set { SetVar(84, value); } }
+		public ackvar Alpha { get { return GetVar(88); } set { SetVar(88, value); } }
+		public ackvar PortalX { get { return GetVar(92); } set { SetVar(92, value); } }
+		public ackvar PortalY { get { return GetVar(96); } set { SetVar(96, value); } }
+		public ackvar PortalZ { get { return GetVar(100); } set { SetVar(100, value); } }
+		public ackvar PnormalX { get { return GetVar(104); } set { SetVar(104, value); } }
+		public ackvar PnormalY { get { return GetVar(108); } set { SetVar(108, value); } }
+		public ackvar PnormalZ { get { return GetVar(112); } set { SetVar(112, value); } }
+		public ackvar FogStart { get { return GetVar(116); } set { SetVar(116, value); } }
+		public ackvar FogEnd { get { return GetVar(120); } set { SetVar(120, value); } }
+		public ackvar Depth { get { return GetVar(124); } set { SetVar(124, value); } }
+		public Entity Genius { get { return GetEntity(128); } set { SetObject(128, value); } }
+		public View Portal { get { return GetView(132); } set { SetObject(132, value); } }
+		//public BMAP* Bmap { get { return GetVar(136); } set { SetObject(136, value); } }
+		public ackvar ClipNear { get { return GetVar(140); } set { SetVar(140, value); } }
+		public ackvar ClipFar { get { return GetVar(144); } set { SetVar(144, value); } }
+		public Material Material { get { return GetMaterial(148); } set { SetObject(148, value); } }
+		public View Stage { get { return GetView(152); } set { SetObject(152, value); } }
+		public ackvar Monitor { get { return GetVar(156); } set { SetVar(156, value); } }
+		public ackvar SkillX { get { return GetVar(160); } set { SetVar(160, value); } }
+		public ackvar SkillY { get { return GetVar(164); } set { SetVar(164, value); } }
+		public ackvar Lod { get { return GetVar(168); } set { SetVar(168, value); } }
+		public ackvar Left { get { return GetVar(172); } set { SetVar(172, value); } }
+		public ackvar Right { get { return GetVar(176); } set { SetVar(176, value); } }
+		public ackvar Bottom { get { return GetVar(180); } set { SetVar(180, value); } }
+		public ackvar Top { get { return GetVar(184); } set { SetVar(184, value); } }
+		//public BMAP* Target1 { get { return GetVar(188); } set { SetVar(188, value); } }
+		//public BMAP* Target2 { get { return GetVar(192); } set { SetVar(192, value); } }
+		//public BMAP* Target3 { get { return GetVar(196); } set { SetVar(196, value); } }
 	}
 }

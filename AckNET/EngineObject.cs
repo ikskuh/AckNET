@@ -128,6 +128,12 @@ namespace AckNET
 			CheckValid();
 			Marshal.WriteInt32(InternalPointer + offset, BitConverter.ToInt32(BitConverter.GetBytes(@var), 0));
 		}
+		protected void SetObject(int offset, EngineObject ent)
+		{
+			CheckValid();
+			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
+			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
+		}
 
 		protected Entity GetEntity(int offset)
 		{
@@ -138,11 +144,15 @@ namespace AckNET
 			else
 				return null;
 		}
-		protected void SetEntity(int offset, Entity ent)
+
+		protected View GetView(int offset)
 		{
 			CheckValid();
-			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			if (dref != IntPtr.Zero)
+				return new View(dref);
+			else
+				return null;
 		}
 
 		protected Material GetMaterial(int offset)
@@ -153,12 +163,6 @@ namespace AckNET
 				return new Material(dref);
 			else
 				return null;
-		}
-		protected void SetMaterial(int offset, Material ent)
-		{
-			CheckValid();
-			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
 		}
 
 		protected IntPtr GetPtr(int offset)

@@ -24,12 +24,12 @@ namespace AckNET
 
 		public static ackvar operator - (ackvar a, ackvar b)
 		{
-			return new ackvar(a.RawValue + b.RawValue);
+			return new ackvar(a.RawValue - b.RawValue);
 		}
 
 		public static explicit operator int (ackvar @var)
 		{
-			return @var.RawValue >> 10;
+			return @var.RawValue / 1024;
 		}
 
 		public static explicit operator bool (ackvar @var)
@@ -45,7 +45,7 @@ namespace AckNET
 
 		public static explicit operator ackvar (int @var)
 		{
-			return new ackvar(@var << 10);
+			return new ackvar(@var * 1024);
 		}
 		
 		public static explicit operator ackvar (bool @var)

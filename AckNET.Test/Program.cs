@@ -20,12 +20,19 @@ namespace AckNET.Test
 
 			Entity ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
 
+			var view = Camera;
+
 			while (Acknex.Frame())
 			{
 				if (ent == EngineVars.MouseEnt)
 				{
 					ent.Pan += 1.5 * TimeStep;
 				}
+
+				Camera.Pan += (KeyCul - KeyCur) * TimeStep;
+
+				Console.WriteLine("{0} - {1} -> {2}", KeyCul, KeyCur, (KeyCul - KeyCur));
+
 				if ((bool)MouseLeft)
 				{
 					Console.WriteLine("{0}:{1}:{2}", (int)SysHours, (int)SysMinutes, (int)SysSeconds);

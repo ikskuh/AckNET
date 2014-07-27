@@ -1724,28 +1724,31 @@ namespace AckNET
 		public static EngineEventDelegate RenderLayer { get { return renderLayer; } set { renderLayer = value; SetEvent(2284, renderLayer); } }
 
 		// ENGINE_VIEW camera;
+		public static View Camera { get { return GetView(2328); } set { SetObject(2328, value); } }
 
 		// ENGINE_VIEW light_view;
+		public static View LightView { get { return GetView(2332); } set { SetObject(2332, value); } }
 
 		// ENGINE_VIEW render_view;
+		public static View RenderView { get { return GetView(2336); } set { SetObject(2336, value); } }
 
 		// ENGINE_ENTITY watched;
-		public static Entity Watched { get { return GetEntity(2340); } set { SetEntity(2340, value); } }
+		public static Entity Watched { get { return GetEntity(2340); } set { SetObject(2340, value); } }
 
 		// ENGINE_ENTITY me;
-		public static Entity Me { get { return GetEntity(2344); } set { SetEntity(2344, value); } }
+		public static Entity Me { get { return GetEntity(2344); } set { SetObject(2344, value); } }
 
 		// ENGINE_ENTITY you;
-		public static Entity You { get { return GetEntity(2348); } set { SetEntity(2348, value); } }
+		public static Entity You { get { return GetEntity(2348); } set { SetObject(2348, value); } }
 
 		// ENGINE_ENTITY sky_cube_level;
-		public static Entity SkyCubeLevel { get { return GetEntity(2352); } set { SetEntity(2352, value); } }
+		public static Entity SkyCubeLevel { get { return GetEntity(2352); } set { SetObject(2352, value); } }
 
 		// ENGINE_ENTITY sky_dome_level;
-		public static Entity SkyDomeLevel { get { return GetEntity(2356); } set { SetEntity(2356, value); } }
+		public static Entity SkyDomeLevel { get { return GetEntity(2356); } set { SetObject(2356, value); } }
 
 		// ENGINE_ENTITY mouse_ent;
-		public static Entity MouseEnt { get { return GetEntity(2360); } set { SetEntity(2360, value); } }
+		public static Entity MouseEnt { get { return GetEntity(2360); } set { SetObject(2360, value); } }
 
 		// ENGINE_BMAP mouse_map;
 
@@ -1753,37 +1756,37 @@ namespace AckNET
 		public static IntPtr RenderMesh { get { return GetPtr(2384); } set { SetPtr(2384, value); } }
 
 		// ENGINE_MATERIAL mtl;
-		public static Material Mtl { get { return GetMaterial(2388); } set { SetMaterial(2388, value); } }
+		public static Material Mtl { get { return GetMaterial(2388); } set { SetObject(2388, value); } }
 
 		// ENGINE_MATERIAL mtl_flat;
-		public static Material MtlFlat { get { return GetMaterial(2392); } set { SetMaterial(2392, value); } }
+		public static Material MtlFlat { get { return GetMaterial(2392); } set { SetObject(2392, value); } }
 
 		// ENGINE_MATERIAL mtl_shaded;
-		public static Material MtlShaded { get { return GetMaterial(2396); } set { SetMaterial(2396, value); } }
+		public static Material MtlShaded { get { return GetMaterial(2396); } set { SetObject(2396, value); } }
 
 		// ENGINE_MATERIAL mtl_model;
-		public static Material MtlModel { get { return GetMaterial(2400); } set { SetMaterial(2400, value); } }
+		public static Material MtlModel { get { return GetMaterial(2400); } set { SetObject(2400, value); } }
 
 		// ENGINE_MATERIAL mtl_terrain;
-		public static Material MtlTerrain { get { return GetMaterial(2404); } set { SetMaterial(2404, value); } }
+		public static Material MtlTerrain { get { return GetMaterial(2404); } set { SetObject(2404, value); } }
 
 		// ENGINE_MATERIAL mtl_sprite;
-		public static Material MtlSprite { get { return GetMaterial(2408); } set { SetMaterial(2408, value); } }
+		public static Material MtlSprite { get { return GetMaterial(2408); } set { SetObject(2408, value); } }
 
 		// ENGINE_MATERIAL mtl_particle;
-		public static Material MtlParticle { get { return GetMaterial(2412); } set { SetMaterial(2412, value); } }
+		public static Material MtlParticle { get { return GetMaterial(2412); } set { SetObject(2412, value); } }
 
 		// ENGINE_MATERIAL mtl_metal;
-		public static Material MtlMetal { get { return GetMaterial(2416); } set { SetMaterial(2416, value); } }
+		public static Material MtlMetal { get { return GetMaterial(2416); } set { SetObject(2416, value); } }
 
 		// ENGINE_MATERIAL mtl_sky;
-		public static Material MtlSky { get { return GetMaterial(2420); } set { SetMaterial(2420, value); } }
+		public static Material MtlSky { get { return GetMaterial(2420); } set { SetObject(2420, value); } }
 
 		// ENGINE_MATERIAL mtl_shadow;
-		public static Material MtlShadow { get { return GetMaterial(2424); } set { SetMaterial(2424, value); } }
+		public static Material MtlShadow { get { return GetMaterial(2424); } set { SetObject(2424, value); } }
 
 		// ENGINE_MATERIAL mtl_unlit;
-		public static Material MtlUnlit { get { return GetMaterial(2428); } set { SetMaterial(2428, value); } }
+		public static Material MtlUnlit { get { return GetMaterial(2428); } set { SetObject(2428, value); } }
 
 		// ENGINE_STRING debug_str;
 
@@ -1812,19 +1815,19 @@ namespace AckNET
 		// ENGINE_STRING exe_dir;
 
 		// ENGINE_ENTITY player;
-		public static Entity Player { get { return GetEntity(2484); } set { SetEntity(2484, value); } }
+		public static Entity Player { get { return GetEntity(2484); } set { SetObject(2484, value); } }
 
 		// ENGINE_STRING user_name;
 
 		// ENGINE_ENTITY passable_ent;
-		public static Entity PassableEnt { get { return GetEntity(2492); } set { SetEntity(2492, value); } }
+		public static Entity PassableEnt { get { return GetEntity(2492); } set { SetObject(2492, value); } }
 
 		// ENGINE_STRING path_name;
 
 		// ENGINE_STRING command_str;
 
 		// ENGINE_ENTITY level_ent;
-		public static Entity LevelEnt { get { return GetEntity(2504); } set { SetEntity(2504, value); } }
+		public static Entity LevelEnt { get { return GetEntity(2504); } set { SetObject(2504, value); } }
 
 		// ENGINE_PANEL mouse_panel;
 
@@ -1835,7 +1838,7 @@ namespace AckNET
 		public static IntPtr RenderD3dxeffect { get { return GetPtr(2520); } set { SetPtr(2520, value); } }
 
 		// ENGINE_MATERIAL render_material;
-		public static Material RenderMaterial { get { return GetMaterial(2524); } set { SetMaterial(2524, value); } }
+		public static Material RenderMaterial { get { return GetMaterial(2524); } set { SetObject(2524, value); } }
 
 		// ENGINE_BMAP render_target;
 
