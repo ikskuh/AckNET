@@ -1751,6 +1751,7 @@ namespace AckNET
 		public static Entity MouseEnt { get { return GetEntity(2360); } set { SetObject(2360, value); } }
 
 		// ENGINE_BMAP mouse_map;
+		public static Bitmap MouseMap { get { return GetBitmap(2364); } set { SetObject(2364, value); } }
 
 		// void* render_mesh;
 		public static IntPtr RenderMesh { get { return GetPtr(2384); } set { SetPtr(2384, value); } }
@@ -1841,15 +1842,19 @@ namespace AckNET
 		public static Material RenderMaterial { get { return GetMaterial(2524); } set { SetObject(2524, value); } }
 
 		// ENGINE_BMAP render_target;
+		public static Bitmap RenderTarget { get { return GetBitmap(2528); } set { SetObject(2528, value); } }
 
 		// ENGINE_BMAP render_stencil;
+		public static Bitmap RenderStencil { get { return GetBitmap(2532); } set { SetObject(2532, value); } }
 
 		// ENGINE_ void* render_zbuffer;
 		public static IntPtr RenderZbuffer { get { return GetPtr(2536); } set { SetPtr(2536, value); } }
 
 		// ENGINE_BMAP video_overlay;
+		public static Bitmap VideoOverlay { get { return GetBitmap(2540); } set { SetObject(2540, value); } }
 
 		// ENGINE_BMAP render_lightmap;
+		public static Bitmap RenderLightmap { get { return GetBitmap(2544); } set { SetObject(2544, value); } }
 
 		// ENGINE_CONTACT hit;
 

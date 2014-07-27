@@ -144,6 +144,15 @@ namespace AckNET
 			else
 				return null;
 		}
+		protected Bitmap GetBitmap(int offset)
+		{
+			CheckValid();
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			if (dref != IntPtr.Zero)
+				return new Bitmap(dref);
+			else
+				return null;
+		}
 
 		protected View GetView(int offset)
 		{

@@ -20,5 +20,15 @@ namespace AckNET
 				throw new ArgumentException("Cannot create an entity with an invalid pointer.");
 			this.InternalPointer = reference;
 		}
+
+
+		public Bitmap GetSkin(int id)
+		{
+			return new Bitmap(Native.NativeMethods.EntGetskin(this.InternalPointer, id));
+		}
+		public void GetSkin(int id, Bitmap skin)
+		{
+			Native.NativeMethods.EntSetskin(this.InternalPointer, skin, id);
+		}
 	}
 }

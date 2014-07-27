@@ -222,7 +222,10 @@ namespace AckNET.Generator
 								 ptrOffset);
 							break;
 						case "ENGINE_BMAP":
-
+							writer.WriteLine(
+								"\t\tpublic static Bitmap {0} {{ get {{ return GetBitmap({1}); }} set {{ SetObject({1}, value); }} }}",
+								 FixName(parts[1]),
+								 ptrOffset);
 							break;
 						case "ENGINE_MATERIAL":
 							writer.WriteLine(

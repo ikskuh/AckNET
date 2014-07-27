@@ -51,6 +51,15 @@ namespace AckNET
 			else
 				return null;
 		}
+		private static Bitmap GetBitmap(int offset)
+		{
+			CheckValid();
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			if (dref != IntPtr.Zero)
+				return new Bitmap(dref);
+			else
+				return null;
+		}
 
 		private static IntPtr GetPtr(int offset)
 		{

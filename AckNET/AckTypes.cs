@@ -90,7 +90,6 @@ namespace AckNET
 
 		public ackvar Pose { get { return GetVar(548); } set { SetVar(548, value); } }
 
-		// TODO: Change to Material
 		public Material Material { get { return GetMaterial(552); } set { SetObject(552, value); } }
 
 		public ackvar U { get { return GetVar(556); } set { SetVar(556, value); } }
@@ -132,8 +131,7 @@ namespace AckNET
 
 		public Entity Parent { get { return GetEntity(616); } set { SetObject(616, value); } }
 
-		// TODO: Change to Bmap
-		public ackvar Lightmap { get { return GetVar(620); } set { SetVar(620, value); } }
+		public Bitmap Lightmap { get { return GetBitmap(620); } set { SetObject(620, value); } }
 
 		public IntPtr Body { get { return GetPtr(624); } set { SetPtr(624, value); } }
 
@@ -280,7 +278,7 @@ namespace AckNET
 		public ackvar Depth { get { return GetVar(124); } set { SetVar(124, value); } }
 		public Entity Genius { get { return GetEntity(128); } set { SetObject(128, value); } }
 		public View Portal { get { return GetView(132); } set { SetObject(132, value); } }
-		//public BMAP* Bmap { get { return GetVar(136); } set { SetObject(136, value); } }
+		public Bitmap Bitmap { get { return GetBitmap(136); } set { SetObject(136, value); } }
 		public ackvar ClipNear { get { return GetVar(140); } set { SetVar(140, value); } }
 		public ackvar ClipFar { get { return GetVar(144); } set { SetVar(144, value); } }
 		public Material Material { get { return GetMaterial(148); } set { SetObject(148, value); } }
@@ -293,8 +291,34 @@ namespace AckNET
 		public ackvar Right { get { return GetVar(176); } set { SetVar(176, value); } }
 		public ackvar Bottom { get { return GetVar(180); } set { SetVar(180, value); } }
 		public ackvar Top { get { return GetVar(184); } set { SetVar(184, value); } }
-		//public BMAP* Target1 { get { return GetVar(188); } set { SetVar(188, value); } }
-		//public BMAP* Target2 { get { return GetVar(192); } set { SetVar(192, value); } }
-		//public BMAP* Target3 { get { return GetVar(196); } set { SetVar(196, value); } }
+		public Bitmap Target1 { get { return GetBitmap(188); } set { SetObject(188, value); } }
+		public Bitmap Target2 { get { return GetBitmap(192); } set { SetObject(192, value); } }
+		public Bitmap Target3 { get { return GetBitmap(196); } set { SetObject(196, value); } }
+	}
+
+	partial class Bitmap
+	{
+		public int Width { get { return GetInt(12); } set { SetInt(12, value); } }
+		public int Height { get { return GetInt(16); } set { SetInt(16, value); } }
+		public int Bytespp { get { return GetInt(20); } set { SetInt(20, value); } }
+		public IntPtr Ptr { get { return GetPtr(24); } set { SetPtr(24, value); } }
+		public IntPtr Pixels { get { return GetPtr(28); } set { SetPtr(28, value); } }
+		public int Flags { get { return GetInt(32); } set { SetInt(32, value); } }
+		public IntPtr D3dtex { get { return GetPtr(36); } set { SetPtr(36, value); } }
+		public float U1 { get { return GetFloat(40); } set { SetFloat(40, value); } }
+		public float V1 { get { return GetFloat(44); } set { SetFloat(44, value); } }
+		public float U2 { get { return GetFloat(48); } set { SetFloat(48, value); } }
+		public float V2 { get { return GetFloat(52); } set { SetFloat(52, value); } }
+		public int U { get { return GetInt(56); } set { SetInt(56, value); } }
+		public int V { get { return GetInt(60); } set { SetInt(60, value); } }
+		public int Refcount { get { return GetInt(64); } set { SetInt(64, value); } }
+		public int Finalwidth { get { return GetInt(68); } set { SetInt(68, value); } }
+		public int Finalheight { get { return GetInt(72); } set { SetInt(72, value); } }
+		public int Finalbytespp { get { return GetInt(76); } set { SetInt(76, value); } }
+		public int Pitch { get { return GetInt(80); } set { SetInt(80, value); } }
+		public int Finalpitch { get { return GetInt(84); } set { SetInt(84, value); } }
+		public int Miplevels { get { return GetInt(88); } set { SetInt(88, value); } }
+		public int Finalformat { get { return GetInt(92); } set { SetInt(92, value); } }
+		public IntPtr finalbits { get { return GetPtr(96); } set { SetPtr(96, value); } }
 	}
 }

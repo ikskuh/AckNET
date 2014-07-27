@@ -20,8 +20,6 @@ namespace AckNET.Test
 
 			Entity ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
 
-			var view = Camera;
-
 			while (Acknex.Frame())
 			{
 				if (ent == EngineVars.MouseEnt)

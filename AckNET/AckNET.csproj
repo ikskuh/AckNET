@@ -44,6 +44,7 @@
     <Compile Include="Acknex.cs" />
     <Compile Include="AckTypes.cs" />
     <Compile Include="ackvar.cs" />
+    <Compile Include="Bitmap.cs" />
     <Compile Include="EngineObject.cs" />
     <Compile Include="EngineVars.cs" />
     <Compile Include="EngineVars.Generated.cs" />
