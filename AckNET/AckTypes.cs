@@ -229,11 +229,10 @@ namespace AckNET
 		public string effect { get { return GetString(108); } /* set { SetVar(108, value); } */ }
 		public ackvar Lod { get { return GetVar(112); } set { SetVar(112, value); } }
 
-		// TODO: Implement get/set materials
-		//public ackBMAP* skin1 { get { return GetVar(116); } set { SetVar(116, value); } }
-		//public ackBMAP* skin2 { get { return GetVar(120); } set { SetVar(120, value); } }
-		//public ackBMAP* skin3 { get { return GetVar(124); } set { SetVar(124, value); } }
-		//public ackBMAP* skin4 { get { return GetVar(128); } set { SetVar(128, value); } }
+		public Bitmap Skin1 { get { return GetBitmap(116); } set { SetObject(116, value); } }
+		public Bitmap Skin2 { get { return GetBitmap(120); } set { SetObject(120, value); } }
+		public Bitmap Skin3 { get { return GetBitmap(124); } set { SetObject(124, value); } }
+		public Bitmap Skin4 { get { return GetBitmap(128); } set { SetObject(128, value); } }
 
 		EngineEventDelegate @event;
 		public EngineEventDelegate Event { get { return @event; } set { @event = value; SetEvent(132, @event); } }
@@ -320,5 +319,12 @@ namespace AckNET
 		public int Miplevels { get { return GetInt(88); } set { SetInt(88, value); } }
 		public int Finalformat { get { return GetInt(92); } set { SetInt(92, value); } }
 		public IntPtr finalbits { get { return GetPtr(96); } set { SetPtr(96, value); } }
+	}
+
+	partial class Sound
+	{
+		public int Length { get { return GetInt(12); } set { SetInt(12, value); } }
+		public IntPtr Buffer { get { return GetPtr(16); } set { SetPtr(16, value); } }
+		public int Type { get { return GetInt(20); } set { SetInt(20, value); } }
 	}
 }

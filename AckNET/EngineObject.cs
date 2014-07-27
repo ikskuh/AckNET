@@ -164,6 +164,16 @@ namespace AckNET
 				return null;
 		}
 
+		protected Sound GetSound(int offset)
+		{
+			CheckValid();
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			if (dref != IntPtr.Zero)
+				return new Sound(dref);
+			else
+				return null;
+		}
+
 		protected Material GetMaterial(int offset)
 		{
 			CheckValid();

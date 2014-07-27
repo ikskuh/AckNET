@@ -18,7 +18,11 @@ namespace AckNET.Test
 
 			Level.Load("");
 
-			Entity ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
+			var ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
+
+			var snd = new Sound("beep.wav");
+
+			OnSpace = (x) => { snd.Play(100, 0); return 0; };
 
 			while (Acknex.Frame())
 			{
