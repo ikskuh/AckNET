@@ -46,11 +46,13 @@
     <Compile Include="AckTypes.cs" />
     <Compile Include="ackvar.cs" />
     <Compile Include="Bitmap.cs" />
+    <Compile Include="Color.cs" />
     <Compile Include="EngineObject.cs" />
     <Compile Include="EngineVars.cs" />
     <Compile Include="EngineVars.Generated.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Font.cs" />
+    <Compile Include="Graphics.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Native\NativeMethods.cs" />
     <Compile Include="Primitives.cs" />

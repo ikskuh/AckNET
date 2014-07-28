@@ -13,6 +13,14 @@ namespace AckNET
 		public ackvar Y;
 		public ackvar Z;
 
+		public Vector(ackvar x, ackvar y)
+		{
+			this.X = x;
+			this.Y = y;
+			this.Z = 0;
+		}
+
+
 		public Vector(ackvar x, ackvar y, ackvar z)
 		{
 			this.X = x;
@@ -66,21 +74,21 @@ namespace AckNET
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct Color
+	public partial struct Color
 	{
-		public ackvar Blue;
-		public ackvar Green;
-		public ackvar Red;
+		public ackvar B;
+		public ackvar G;
+		public ackvar R;
 
 		public Color(ackvar red, ackvar green, ackvar blue)
 		{
-			this.Red = red;
-			this.Blue = blue;
-			this.Green = green;
+			this.R = red;
+			this.B = blue;
+			this.G = green;
 		}
 		public override string ToString()
 		{
-			return string.Format("[{0}; {1}; {2}]", Red, Green, Blue);
+			return string.Format("[{0}; {1}; {2}]", R, G, B);
 		}
 	}
 

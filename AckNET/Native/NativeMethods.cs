@@ -1099,11 +1099,17 @@ namespace AckNET.Native
 		[DllImport("acknex.dll", EntryPoint="draw_begin", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern IntPtr DrawBegin();
 
+		[DllImport("acknex.dll", EntryPoint = "draw_line", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+		public static extern ackvar DrawLine(ref Vector position, IntPtr color, ackvar alpha);
+
 		[DllImport("acknex.dll", EntryPoint="draw_line", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar DrawLine(ref Vector param0, ref Color param1, ackvar param2);
+		public static extern ackvar DrawLine(ref Vector position, ref Color color, ackvar alpha);
+
+		[DllImport("acknex.dll", EntryPoint = "draw_line3d", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+		public static extern ackvar DrawLine3d(ref Vector position, IntPtr color, ackvar alpha);
 
 		[DllImport("acknex.dll", EntryPoint="draw_line3d", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar DrawLine3d(ref Vector param0, ref Color param1, ackvar param2);
+		public static extern ackvar DrawLine3d(ref Vector position, ref Color color, ackvar alpha);
 
 		[DllImport("acknex.dll", EntryPoint="draw_box3d", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar DrawBox3d(ref Vector param0, ref Vector param1, ref Color param2, ackvar param3);
@@ -1112,7 +1118,7 @@ namespace AckNET.Native
 		public static extern ackvar DrawObj(IntPtr param0);
 
 		[DllImport("acknex.dll", EntryPoint="draw_point3d", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar DrawPoint3d(ref Vector param0, ref Color param1, ackvar param2, ackvar param3);
+		public static extern ackvar DrawPoint3d(ref Vector position, ref Color color, ackvar alpha, ackvar size);
 
 		[DllImport("acknex.dll", EntryPoint="draw_quad", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar DrawQuad(IntPtr param0, ref Vector param1, ref Vector param2, ref Vector param3, ref Vector param4, ref Color param5, ackvar param6, ackvar param7);

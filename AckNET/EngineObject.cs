@@ -102,9 +102,9 @@ namespace AckNET
 		protected void SetColor(int offset, Color value)
 		{
 			CheckValid();
-			SetVar(offset + 0, value.Blue);
-			SetVar(offset + 4, value.Green);
-			SetVar(offset + 8, value.Red);
+			SetVar(offset + 0, value.B);
+			SetVar(offset + 4, value.G);
+			SetVar(offset + 8, value.R);
 		}
 
 		protected int GetInt(int offset)
