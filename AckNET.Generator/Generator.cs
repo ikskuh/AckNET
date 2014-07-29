@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace AckNET.Generator
 {
-	class Program
+	class Generator
 	{
 		static void Main(string[] args)
 		{
@@ -283,10 +283,16 @@ namespace AckNET.Generator
 								 ptrOffset);
 							break;
 						case "ENGINE_PANEL":
-
+							writer.WriteLine(
+								"\t\tpublic static Panel {0} {{ get {{ return Get<Panel>({1}); }} set {{ SetObject({1}, value); }} }}",
+								 FixName(parts[1]),
+								 ptrOffset);
 							break;
 						case "ENGINE_CONTACT":
-
+							writer.WriteLine(
+								"\t\tpublic static Contact {0} {{ get {{ return Get<Contact>({1}); }} set {{ SetObject({1}, value); }} }}",
+								 FixName(parts[1]),
+								 ptrOffset);
 							break;
 						case "void*":
 							writer.WriteLine(

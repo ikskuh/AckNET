@@ -13,7 +13,7 @@ namespace AckNET.Test
 			Acknex.Open("-nx 200");
 			Console.WriteLine("Using version {0}", EngineVars.Version);
 
-			OnTab += (s,e ) => { Console.WriteLine("Pressed [TAB]"); };
+			OnTab += (s, e) => { Console.WriteLine("Pressed [TAB]"); };
 			MouseMode = 3;
 
 			// Initialize engine
@@ -29,11 +29,11 @@ namespace AckNET.Test
 
 			var snd = new Sound("beep.wav");
 
-			OnSpace += (s,e) => { snd.Play(100, 0); };
+			OnSpace += (s, e) => { snd.Play(100, 0); };
 
 			while (Acknex.Frame())
 			{
-				if (ent == EngineVars.MouseEnt)
+				if (ReferenceEquals(ent, EngineVars.MouseEnt))
 				{
 					ent.Pan += 1.5 * TimeStep;
 				}

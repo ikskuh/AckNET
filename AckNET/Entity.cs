@@ -8,17 +8,15 @@ namespace AckNET
 	public sealed partial class Entity : EngineObject
 	{
 		public Entity(string fileName, Vector position)
-			 : base(true)
+			 : base(true, Native.NativeMethods.EntCreate(fileName, ref position, IntPtr.Zero))
 		{
-			this.InternalPointer = AckNET.Native.NativeMethods.EntCreate(fileName, ref position, IntPtr.Zero);
+
 		}
 
-		public Entity(IntPtr reference)
-			: base(false)
+		internal Entity(IntPtr reference)
+			: base(false, reference)
 		{
-			if (reference == IntPtr.Zero)
-				throw new ArgumentException("Cannot create an entity with an invalid pointer.");
-			this.InternalPointer = reference;
+			
 		}
 
 

@@ -1883,6 +1883,7 @@ namespace AckNET
 		public static Entity LevelEnt { get { return Get<Entity>(2504); } set { SetObject(2504, value); } }
 
 		// ENGINE_PANEL mouse_panel;
+		public static Panel MousePanel { get { return Get<Panel>(2508); } set { SetObject(2508, value); } }
 
 		// ENGINE_ void* render_d3dmaterial;
 		public static IntPtr RenderD3dmaterial { get { return GetPtr(2516); } set { SetPtr(2516, value); } }
@@ -1909,6 +1910,7 @@ namespace AckNET
 		public static Bitmap RenderLightmap { get { return Get<Bitmap>(2544); } set { SetObject(2544, value); } }
 
 		// ENGINE_CONTACT hit;
+		public static Contact Hit { get { return Get<Contact>(2552); } set { SetObject(2552, value); } }
 
 		// ENGINE_ float* matTexture;
 // ENGINE_ float* matTexture;

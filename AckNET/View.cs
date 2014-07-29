@@ -8,15 +8,15 @@ namespace AckNET
 	public sealed partial class View : EngineObject
 	{
 		public View(ackvar layer)
-			: base(true)
+			: base(true, Native.NativeMethods.ViewCreate(layer))
 		{
-			this.InternalPointer = Native.NativeMethods.ViewCreate(layer);
+
         }
 
-		public View(IntPtr handle)
-			 : base(false)
+		internal View(IntPtr handle)
+			 : base(false, handle)
 		{
-			this.InternalPointer = handle;
+
 		}
 
 		public bool Check(Vector vMin, Vector vMax)

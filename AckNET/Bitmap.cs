@@ -8,21 +8,21 @@ namespace AckNET
 	public sealed partial class Bitmap : EngineObject
 	{
 		public Bitmap(string fileName)
-			: base(true)
+			: base(true, Native.NativeMethods.BmapCreate(fileName))
 		{
-			this.InternalPointer = Native.NativeMethods.BmapCreate(fileName);
+
 		}
 
 		public Bitmap(int width, int height, int format)
-			: base(true)
+			: base(true, Native.NativeMethods.BmapCreateblack(width, height, format))
 		{
-			this.InternalPointer = Native.NativeMethods.BmapCreateblack(width, height, format);
+
 		}
 
-		public Bitmap(IntPtr handle)
-			: base(false)
+		internal Bitmap(IntPtr handle)
+			: base(false, handle)
 		{
-			this.InternalPointer = handle;
+			
 		}
 		public void Fill(Color color, ackvar alpha)
 		{

@@ -48,6 +48,7 @@
     <Compile Include="ackvar.cs" />
     <Compile Include="Bitmap.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="Contact.cs" />
     <Compile Include="EngineEventArgs.cs" />
     <Compile Include="EngineObject.cs" />
     <Compile Include="EngineVars.cs" />
@@ -58,9 +59,12 @@
     <Compile Include="Level.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Native\NativeMethods.cs" />
+    <Compile Include="Panel.cs" />
+    <Compile Include="Particle.cs" />
     <Compile Include="Primitives.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sound.cs" />
+    <Compile Include="Text.cs" />
     <Compile Include="View.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

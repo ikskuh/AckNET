@@ -8,17 +8,14 @@ namespace AckNET
 	public partial class Material : EngineObject
 	{
 		public Material()
-			: base(true)
+			: base(true, Native.NativeMethods.MtlCreate())
 		{
 
 		}
 
-		public Material(IntPtr reference)
-			: base(false)
+		internal Material(IntPtr reference)
+			: base(false, reference)
 		{
-			if (reference == IntPtr.Zero)
-				throw new ArgumentException("Cannot create an entity with an invalid pointer.");
-			this.InternalPointer = reference;
 		}
 	}
 }

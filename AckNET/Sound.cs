@@ -8,15 +8,14 @@ namespace AckNET
 	public sealed partial class Sound : EngineObject
 	{
 		public Sound(string fileName)
-			: base(true)
+			: base(true, Native.NativeMethods.SndCreate(fileName))
 		{
-			this.InternalPointer = Native.NativeMethods.SndCreate(fileName);
+
 		}
 
-		public Sound(IntPtr handle)
-			: base(false)
-			{
-			this.InternalPointer = handle;
+		internal Sound(IntPtr handle)
+			: base(false, handle)
+		{
 		}
 
 		public SoundHandle Play(ackvar volume, ackvar balance)

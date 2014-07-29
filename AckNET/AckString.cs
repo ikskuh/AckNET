@@ -8,15 +8,15 @@ namespace AckNET
 	public sealed partial class AckString : EngineObject
 	{
 		public AckString(string initalValue)
-			: base(true)
+			: base(true, Native.NativeMethods.StrCreate(initalValue))
 		{
-			this.InternalPointer = Native.NativeMethods.StrCreate(initalValue);
+
 		}
 
 		public AckString(IntPtr handle)
-			: base(false)
+			: base(false, handle)
 		{
-			this.InternalPointer = handle;
+
 		}
 
 		/// <summary>

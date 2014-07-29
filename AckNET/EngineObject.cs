@@ -22,7 +22,11 @@ namespace AckNET
 			}
 			else
 			{
-				var type = typeof(T).GetConstructor(new[] { typeof(IntPtr) });
+				var type = typeof(T).GetConstructor(
+					BindingFlags.Instance | BindingFlags.NonPublic,
+					null,
+					new[] { typeof(IntPtr) },
+					null);
 
 				var obj = type.Invoke(new object[] { ptr }) as T;
 				registry.Add(ptr, obj);
@@ -30,21 +34,32 @@ namespace AckNET
 			}
 		}
 
-
-		protected EngineObject(bool userCreated)
+		internal EngineObject(bool userCreated, IntPtr ptr)
 		{
+			if (ptr == IntPtr.Zero)
+				throw new ArgumentException("Cannot create an entity with an invalid pointer.");
 
-		}
+			if (IsUsedCreated && registry.ContainsKey(ptr))
+			{
+				throw new InvalidOperationException("You are not allowed mark an EngineObject as used created entity and initialize it with a already registered EngineObject pointer.");
+			}
 
-		protected EngineObject(IntPtr ptr)
-		{
+			this.IsUsedCreated = userCreated;
 			this.InternalPointer = ptr;
+
+			if (IsUsedCreated)
+			{
+				// Register this object so we get a reference equality.
+				registry.Add(ptr, this);
+			}
 		}
 
 		public IntPtr InternalPointer
 		{
 			get; protected set;
 		}
+
+		public bool IsUsedCreated { get;private set; }
 
 		public static implicit operator IntPtr(EngineObject obj)
 		{
