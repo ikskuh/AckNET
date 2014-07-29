@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AckNET
 {
-	public abstract partial class EngineObject : IEquatable<EngineObject>
+	public abstract partial class EngineObject
 	{
 		private static Dictionary<IntPtr, EngineObject> registry = new Dictionary<IntPtr, EngineObject>();
 
