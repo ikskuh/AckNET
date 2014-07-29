@@ -34,6 +34,19 @@ namespace AckNET
 			}
 		}
 
+		/// <summary>
+		/// Needed because old entity references would still be valid after level_load
+		/// </summary>
+		internal static void ClearEntityCache()
+		{
+			foreach (var obj in registry.ToArray())
+			{
+				var ent = obj.Value as Entity;
+				if (ent == null) continue;
+				registry.Remove(obj.Key);
+			}
+		}
+
 		internal EngineObject(bool userCreated, IntPtr ptr)
 		{
 			if (ptr == IntPtr.Zero)
@@ -59,7 +72,7 @@ namespace AckNET
 			get; protected set;
 		}
 
-		public bool IsUsedCreated { get;private set; }
+		public bool IsUsedCreated { get; private set; }
 
 		public static implicit operator IntPtr(EngineObject obj)
 		{
@@ -238,29 +251,29 @@ namespace AckNET
 			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
 		}
 
-		public static bool operator ==(EngineObject a, EngineObject b)
-		{
-			if ((object)a == null && (object)b == null) return true;
-			if ((object)a == null || (object)b == null) return false;
-			return a.Equals(b);
-		}
-		public static bool operator !=(EngineObject a, EngineObject b)
-		{
-			if ((object)a == null && (object)b == null) return true;
-			if ((object)a == null || (object)b == null) return false;
-			return !a.Equals(b);
-		}
+		//public static bool operator ==(EngineObject a, EngineObject b)
+		//{
+		//	if ((object)a == null && (object)b == null) return true;
+		//	if ((object)a == null || (object)b == null) return false;
+		//	return a.Equals(b);
+		//}
+		//public static bool operator !=(EngineObject a, EngineObject b)
+		//{
+		//	if ((object)a == null && (object)b == null) return true;
+		//	if ((object)a == null || (object)b == null) return false;
+		//	return !a.Equals(b);
+		//}
 
-		public bool Equals(EngineObject other)
-		{
-			if (other == null) return false;
-			return other.InternalPointer == this.InternalPointer;
-		}
+		//public bool Equals(EngineObject other)
+		//{
+		//	if (other == null) return false;
+		//	return other.InternalPointer == this.InternalPointer;
+		//}
 
-		public override bool Equals(object obj)
-		{
-			return this.Equals(obj as EngineObject);
-		}
+		//public override bool Equals(object obj)
+		//{
+		//	return this.Equals(obj as EngineObject);
+		//}
 
 		public override int GetHashCode()
 		{

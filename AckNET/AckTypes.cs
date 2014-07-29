@@ -5,7 +5,7 @@ namespace AckNET
 
 	partial class Entity
 	{
-		public string Type { get { return GetString(12); } }
+		public string FileName { get { return GetString(12); } }
 
 		public Vector Position { get { return GetVector(16); } set { SetVector(16, value); } }
 

@@ -7,6 +7,12 @@ namespace AckNET
 {
 	public sealed partial class Entity : EngineObject
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="fileName"></param>
+		/// <param name="position"></param>
+		/// <remarks>ent_create</remarks>
 		public Entity(string fileName, Vector position)
 			 : base(true, Native.NativeMethods.EntCreate(fileName, ref position, IntPtr.Zero))
 		{
@@ -16,7 +22,7 @@ namespace AckNET
 		internal Entity(IntPtr reference)
 			: base(false, reference)
 		{
-			
+
 		}
 
 
@@ -31,7 +37,31 @@ namespace AckNET
 
 		public override string ToString()
 		{
-			return (this.Type ?? "<NULL>") + " @ " + this.Position.ToString();
+			return (this.FileName ?? "<NULL>") + " @ " + this.Position.ToString();
 		}
+
+		/// <summary>
+		/// Returns the type of this entity.
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks>ent_type</remarks>
+		public EntityType Type
+		{
+			get
+			{
+				return (EntityType)(int)Native.NativeMethods.EntType(this);
+			}
+		}
+	}
+
+	public enum EntityType
+	{
+		Invalid = 0, // Kein gültiger Typus
+		PolygonBasedBSPMap = 1,	// Polygon-basierende BSP-Map (A4, A5, A6)
+		MeshBasedABTMap = 2, // Mesh-basierende ABT-Map (A7)
+		MeshBasedBSPMap = 3, // Mesh-basierende BSP-Map (A7)
+		Terrain = 4, // Terrain
+		Modell = 5,	// Modell
+		Sprite = 6,	// Sprite
 	}
 }
