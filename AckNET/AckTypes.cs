@@ -253,9 +253,13 @@ namespace AckNET
 		public int Flags { get { return GetInt(28); } set { SetInt(28, value); } }
 		public ackvar SizeX { get { return GetVar(32); } set { SetVar(32, value); } }
 		public ackvar SizeY { get { return GetVar(36); } set { SetVar(36, value); } }
+
+		public Vector Position { get { return GetVector(40); } set { SetVector(40, value); } }
 		public ackvar X { get { return GetVar(40); } set { SetVar(40, value); } }
 		public ackvar Y { get { return GetVar(44); } set { SetVar(44, value); } }
 		public ackvar Z { get { return GetVar(48); } set { SetVar(48, value); } }
+
+		public Angle Rotation { get { return GetAngle(52); } set { SetAngle(52, value); } }
 		public ackvar Pan { get { return GetVar(52); } set { SetVar(52, value); } }
 		public ackvar Tilt { get { return GetVar(56); } set { SetVar(56, value); } }
 		public ackvar Roll { get { return GetVar(60); } set { SetVar(60, value); } }
@@ -266,9 +270,13 @@ namespace AckNET
 		public ackvar Ambient { get { return GetVar(80); } set { SetVar(80, value); } }
 		public ackvar Bg { get { return GetVar(84); } set { SetVar(84, value); } }
 		public ackvar Alpha { get { return GetVar(88); } set { SetVar(88, value); } }
+
+		public Vector PortalPosition { get { return GetVector(92); } set { SetVector(92, value); } }
 		public ackvar PortalX { get { return GetVar(92); } set { SetVar(92, value); } }
 		public ackvar PortalY { get { return GetVar(96); } set { SetVar(96, value); } }
 		public ackvar PortalZ { get { return GetVar(100); } set { SetVar(100, value); } }
+
+		public Vector PortalNormal { get { return GetVector(104); } set { SetVector(104, value); } }
 		public ackvar PnormalX { get { return GetVar(104); } set { SetVar(104, value); } }
 		public ackvar PnormalY { get { return GetVar(108); } set { SetVar(108, value); } }
 		public ackvar PnormalZ { get { return GetVar(112); } set { SetVar(112, value); } }

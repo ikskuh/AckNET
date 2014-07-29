@@ -5,18 +5,51 @@ namespace AckNET
 {
 	public static partial class EngineVars
 	{
-		private static ackvar GetVar(int offset)
+		//private static EngineEventDelegate onMouseLeftPtr = null;
+		//public static event EventHandler<EngineEventArgs> OnMouseLeftEvent;
+
+		//internal static void InitializeEvents()
+		//{
+		//	onMouseLeftPtr = (x) =>
+		//	{
+		//		if (OnMouseLeftEvent != null)
+		//			OnMouseLeftEvent(null, new EngineEventArgs(x));
+		//		return 0.0;
+		//	};
+		//	SetEvent(2088, onMouseLeftPtr);
+		//}
+
+		private static ackvar GetVar(int offset, int delta = 0)
 		{
 			CheckValid();
 			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			return new ackvar(Marshal.ReadInt32(dref));
+			return new ackvar(Marshal.ReadInt32(dref + delta));
 		}
-		private static void SetVar(int offset, ackvar @var)
+
+		private static Vector GetVector(int offset)
+		{
+			CheckValid();
+			return new Vector(
+				GetVar(offset, 0),
+				GetVar(offset, 4),
+				GetVar(offset, 8));
+		}
+
+		private static void SetVar(int offset, ackvar @var, int delta = 0)
 		{
 			CheckValid();
 			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			Marshal.WriteInt32(dref, @var.RawValue);
+			Marshal.WriteInt32(dref + delta, @var.RawValue);
 		}
+
+		private static void SetVector(int offset, Vector @var)
+		{
+			CheckValid();
+			SetVar(offset, @var.X, 0);
+			SetVar(offset, @var.Y, 4);
+			SetVar(offset, @var.Z, 8);
+		}
+
 		private static void SetObject(int offset, EngineObject ent)
 		{
 			CheckValid();
@@ -24,41 +57,12 @@ namespace AckNET
 			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
 		}
 
-		private static Entity GetEntity(int offset)
+		private static T Get<T>(int offset)
+			where T : EngineObject
 		{
 			CheckValid();
 			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new Entity(dref);
-			else
-				return null;
-		}
-		private static Material GetMaterial(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new Material(dref);
-			else
-				return null;
-		}
-		private static View GetView(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new View(dref);
-			else
-				return null;
-		}
-		private static Bitmap GetBitmap(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new Bitmap(dref);
-			else
-				return null;
+			return EngineObject.Get<T>(dref);
 		}
 
 		private static IntPtr GetPtr(int offset)

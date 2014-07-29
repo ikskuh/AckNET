@@ -18,6 +18,10 @@ namespace AckNET
 		public static bool Open(string commandLine)
 		{
 			EngineVars.InternalPointer = engine_open(commandLine, 0);
+			if (EngineVars.InternalPointer != IntPtr.Zero)
+			{
+				EngineVars.InitializeEvents();
+			}
 			return EngineVars.InternalPointer != IntPtr.Zero;
         }
 

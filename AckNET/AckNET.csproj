@@ -34,6 +34,7 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,12 +48,14 @@
     <Compile Include="ackvar.cs" />
     <Compile Include="Bitmap.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="EngineEventArgs.cs" />
     <Compile Include="EngineObject.cs" />
     <Compile Include="EngineVars.cs" />
     <Compile Include="EngineVars.Generated.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Font.cs" />
     <Compile Include="Graphics.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Native\NativeMethods.cs" />
     <Compile Include="Primitives.cs" />

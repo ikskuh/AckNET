@@ -1,21 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
 namespace AckNET
 {
-	public abstract partial class EngineObject : IEquatable<EngineObject>, IDisposable
+	public abstract partial class EngineObject : IEquatable<EngineObject>
 	{
+		private static Dictionary<IntPtr, EngineObject> registry = new Dictionary<IntPtr, EngineObject>();
+
+		public static T Get<T>(IntPtr ptr)
+			where T : EngineObject
+		{
+			if (ptr == IntPtr.Zero)
+				return null;
+			if (registry.ContainsKey(ptr))
+			{
+				return registry[ptr] as T;
+			}
+			else
+			{
+				var type = typeof(T).GetConstructor(new[] { typeof(IntPtr) });
+
+				var obj = type.Invoke(new object[] { ptr }) as T;
+				registry.Add(ptr, obj);
+				return obj;
+			}
+		}
+
+
 		protected EngineObject(bool userCreated)
 		{
 
 		}
 
-		~EngineObject()
+		protected EngineObject(IntPtr ptr)
 		{
-			this.Dispose(false);
+			this.InternalPointer = ptr;
 		}
 
 		public IntPtr InternalPointer
@@ -29,14 +52,6 @@ namespace AckNET
 				return IntPtr.Zero;
 			else
 				return obj.InternalPointer;
-		}
-
-		protected virtual void Dispose(bool disposing) { }
-
-		public void Dispose()
-		{
-			Dispose(true);
-			GC.SuppressFinalize(this);
 		}
 
 		protected void CheckValid()

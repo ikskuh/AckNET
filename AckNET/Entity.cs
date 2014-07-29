@@ -30,5 +30,10 @@ namespace AckNET
 		{
 			Native.NativeMethods.EntSetskin(this.InternalPointer, skin, id);
 		}
+
+		public override string ToString()
+		{
+			return (this.Type ?? "<NULL>") + " @ " + this.Position.ToString();
+		}
 	}
 }

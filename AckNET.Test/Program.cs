@@ -13,16 +13,23 @@ namespace AckNET.Test
 			Acknex.Open("-nx 200");
 			Console.WriteLine("Using version {0}", EngineVars.Version);
 
-			OnTab = (x) => { Console.WriteLine("Pressed [TAB]"); return 0; };
+			OnTab += (s,e ) => { Console.WriteLine("Pressed [TAB]"); };
 			MouseMode = 3;
 
+			// Initialize engine
+			Acknex.Frame();
+
 			Level.Load("");
+
+			Acknex.Frame();
+
+			EngineVars.SkyColor = Color.DeepSkyBlue;
 
 			var ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
 
 			var snd = new Sound("beep.wav");
 
-			OnSpace = (x) => { snd.Play(100, 0); return 0; };
+			OnSpace += (s,e) => { snd.Play(100, 0); };
 
 			while (Acknex.Frame())
 			{
@@ -33,13 +40,6 @@ namespace AckNET.Test
 
 				Camera.Pan += (KeyCul - KeyCur) * TimeStep;
 
-				Console.WriteLine("{0} - {1} -> {2}", KeyCul, KeyCur, (KeyCul - KeyCur));
-
-				if ((bool)MouseLeft)
-				{
-					Console.WriteLine("{0}:{1}:{2}", (int)SysHours, (int)SysMinutes, (int)SysSeconds);
-				}
-
 				if ((bool)KeyEsc)
 				{
 					break;
@@ -47,6 +47,11 @@ namespace AckNET.Test
 			}
 
 			Acknex.Close();
+		}
+
+		private static void EngineVars_OnMouseLeftEvent(object sender, EngineEventArgs e)
+		{
+			Console.WriteLine("Hey listen!");
 		}
 	}
 }
