@@ -265,20 +265,16 @@ namespace AckNET.Native
 		public static extern Vector VecToUv(ref Vector param0, IntPtr param1, ackvar param2);
 
 		[DllImport("acknex.dll", EntryPoint="vec_for_screen", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecForScreen(ref Vector param0, IntPtr param1);
+		public static extern IntPtr VecForScreen(ref Vector param0, IntPtr param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_to_screen", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecToScreen(ref Vector param0, IntPtr param1);
+		public static extern IntPtr VecToScreen(ref Vector param0, IntPtr param1);
 
 		[DllImport("acknex.dll", EntryPoint="rel_for_screen", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector RelForScreen(ref Vector param0, IntPtr param1);
+		public static extern IntPtr RelForScreen(ref Vector param0, IntPtr param1);
 
 		[DllImport("acknex.dll", EntryPoint="rel_to_screen", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector RelToScreen(ref Vector param0, IntPtr param1);
+		public static extern IntPtr RelToScreen(ref Vector param0, IntPtr param1);
 
 		// Not that it is TOTALLY unnecessary in C#
 		//[DllImport("acknex.dll", EntryPoint="vector", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]

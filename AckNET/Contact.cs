@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AckNET
 {
-	public sealed class Contact : EngineObject
+	public sealed partial class Contact : EngineObject
 	{
 		internal Contact(IntPtr handle)
 			: base(false, handle)

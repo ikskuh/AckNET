@@ -69,6 +69,88 @@ namespace AckNET
 		{
 			return string.Format("({0}; {1}; {2})", X, Y, Z);
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="view"></param>
+		/// <returns></returns>
+		/// <remarks>vec_to_screen</remarks>
+		public Vector ToScreen(View view)
+		{
+			Vector vector = this;
+			Native.NativeMethods.VecToScreen(ref vector, view);
+			return vector;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="view"></param>
+		/// <returns></returns>
+		/// <remarks>vec_for_screen</remarks>
+		public Vector ForScreen(View view)
+		{
+			Vector vector = this;
+			Native.NativeMethods.VecForScreen(ref vector, view);
+			return vector;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="view"></param>
+		/// <returns></returns>
+		/// <remarks>rel_to_screen</remarks>
+		public Vector ToRelativeScreen(View view)
+		{
+			Vector vector = this;
+			Native.NativeMethods.RelToScreen(ref vector, view);
+			return vector;
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="view"></param>
+		/// <returns></returns>
+		/// <remarks>rel_for_screen</remarks>
+		public Vector ForRelativeScreen(View view)
+		{
+			Vector vector = this;
+			Native.NativeMethods.RelForScreen(ref vector, view);
+			return vector;
+		}
+
+		#region FluidInterface
+
+		public Vector SetX(ackvar x)
+		{
+			return new Vector(x, this.Y, this.Z);
+		}
+		public Vector SetY(ackvar y)
+		{
+			return new Vector(this.X, y, this.Z);
+		}
+
+		public Vector SetZ(ackvar z)
+		{
+			return new Vector(this.X, this.Y, z);
+		}
+		public Vector AddX(ackvar x)
+		{
+			return new Vector(this.X + x, this.Y, this.Z);
+		}
+		public Vector AddY(ackvar y)
+		{
+			return new Vector(this.X, this.Y + y, this.Z);
+		}
+
+		public Vector AddZ(ackvar z)
+		{
+			return new Vector(this.X, this.Y, this.Z + z);
+		}
+
+		#endregion
 	}
 
 	[StructLayout(LayoutKind.Sequential)]

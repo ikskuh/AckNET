@@ -26,10 +26,23 @@ namespace AckNET
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		/// <remarks>ent_getskin</remarks>
 		public Bitmap GetSkin(int id)
 		{
 			return new Bitmap(Native.NativeMethods.EntGetskin(this.InternalPointer, id));
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="skin"></param>
+		/// <remarks>ent_setskin</remarks>
 		public void GetSkin(int id, Bitmap skin)
 		{
 			Native.NativeMethods.EntSetskin(this.InternalPointer, skin, id);

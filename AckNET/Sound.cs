@@ -7,6 +7,11 @@ namespace AckNET
 {
 	public sealed partial class Sound : EngineObject
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="fileName"></param>
+		/// <remarks>snd_create</remarks>
 		public Sound(string fileName)
 			: base(true, Native.NativeMethods.SndCreate(fileName))
 		{
@@ -18,11 +23,26 @@ namespace AckNET
 		{
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="volume"></param>
+		/// <param name="balance"></param>
+		/// <returns></returns>
+		/// <remarks>snd_play</remarks>
 		public SoundHandle Play(ackvar volume, ackvar balance)
 		{
 			return new SoundHandle(Native.NativeMethods.SndPlay(this.InternalPointer, volume, balance));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="volume"></param>
+		/// <param name="balance"></param>
+		/// <returns></returns>
+		/// 
+		/// <remarks>snd_loop</remarks>
 		public SoundHandle Loop(ackvar volume, ackvar balance)
 		{
 			return new SoundHandle(Native.NativeMethods.SndLoop(this.InternalPointer, volume, balance));
@@ -38,28 +58,57 @@ namespace AckNET
 			this.handle = handle;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <remarks>snd_start</remarks>
 		public void Start()
 		{
 			Native.NativeMethods.SndStart(this.handle);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <remarks>snd_stop</remarks>
 		public void Stop()
 		{
 			Native.NativeMethods.SndStop(this.handle);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <remarks>snd_pause</remarks>
 		public void Pause()
 		{
 			Native.NativeMethods.SndPause(this.handle);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="volume"></param>
+		/// <param name="frequency"></param>
+		/// <param name="balance"></param>
+		/// <remarks>snd_tune</remarks>
 		public void Tune(ackvar volume, ackvar frequency, ackvar balance)
 		{
 			Native.NativeMethods.SndTune(this.handle, volume, frequency, balance);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks>snd_playing</remarks>
 		public ackvar Position { get { return Native.NativeMethods.SndPlaying(this.handle); } }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks>snd_playing</remarks>
 		public bool IsPlaying { get { return (bool)this.Position; } }
 	}
 }

@@ -47,6 +47,8 @@
     <Compile Include="AckTypes.cs" />
     <Compile Include="ackvar.cs" />
     <Compile Include="Bitmap.cs" />
+    <Compile Include="Collision.cs" />
+    <Compile Include="CollisionFlags.cs" />
     <Compile Include="Color.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="EngineEventArgs.cs" />

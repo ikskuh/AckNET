@@ -7,6 +7,11 @@ namespace AckNET
 {
 	public sealed partial class AckString : EngineObject
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="initalValue"></param>
+		/// <remarks>str_create</remarks>
 		public AckString(string initalValue)
 			: base(true, Native.NativeMethods.StrCreate(initalValue))
 		{
@@ -23,14 +28,21 @@ namespace AckNET
 		/// Copies the value into the string.
 		/// </summary>
 		/// <param name="value"></param>
+		/// <remarks>str_cpy</remarks>
 		public void SetString(string value)
 		{
 			Native.NativeMethods.StrCpy(this.InternalPointer, value);
-        }
+		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="font"></param>
+		/// <returns></returns>
+		/// <remarks>str_width</remarks>
 		public ackvar GetWidth(Font font)
 		{
 			return Native.NativeMethods.StrWidth(this.Chars, font);
-        }
+		}
 	}
 }
