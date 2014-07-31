@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ClrTest.Reflection;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace AckNET
@@ -7,34 +10,73 @@ namespace AckNET
 	{
 		public static bool Close()
 		{
-			return engine_close() != 0;
+			return Native.NativeMethods.EngineClose() != 0;
 		}
 
 		public static bool Frame()
 		{
-			return engine_frame() != 0;
+			return Native.NativeMethods.EngineFrame() != 0;
 		}
 
 		public static bool Open(string commandLine)
 		{
-			EngineVars.InternalPointer = engine_open(commandLine, 0);
+			EngineVars.InternalPointer = Native.NativeMethods.EngineOpen(commandLine, 0);
 			if (EngineVars.InternalPointer != IntPtr.Zero)
 			{
 				EngineVars.InitializeEvents();
 			}
 			return EngineVars.InternalPointer != IntPtr.Zero;
+		}
+
+		public static void AnalyzeWrapper()
+		{
+			HashSet<MethodBase> allMethods = new HashSet<MethodBase>();
+			HashSet<MethodBase> methods = new HashSet<MethodBase>();
+			foreach (var method in typeof(Native.NativeMethods).GetMethods(BindingFlags.Static | BindingFlags.Public))
+			{
+				methods.Add(method);
+				allMethods.Add(method);
+			}
+			foreach (var type in typeof(Acknex).Assembly.GetTypes())
+			{
+				foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+				{
+					var mb = method.GetMethodBody();
+					if (mb != null)
+					{
+						ILReader reader = new ILReader(method);
+						foreach (var token in reader)
+						{
+							var instr = token as InlineMethodInstruction;
+							if (instr != null)
+							{
+								if (allMethods.Contains(instr.Method))
+                                {
+									methods.Remove(instr.Method);
+									var attribs = instr.Method.GetCustomAttributes(typeof(DllImportAttribute), false) as DllImportAttribute[];
+									if(attribs.Length == 1)
+									{
+										Console.WriteLine("{2} -> {0}.{1}", type.Name, method.Name, attribs[0].EntryPoint);
+									}
+									else
+									{
+										Console.WriteLine("{0}.{1}", type.Name, method.Name);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			Console.WriteLine(
+				"Wrapper Completeness: {0}/{1} = {2}%",
+				(allMethods.Count - methods.Count),
+				allMethods.Count,
+				100 * (allMethods.Count - methods.Count) / allMethods.Count);
         }
-
-		[DllImport("acknex.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-		private static extern int engine_close();
-
-		[DllImport("acknex.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-		private static extern int engine_frame();
-
-		[DllImport("acknex.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-		private static extern IntPtr engine_open(string commandLine, int callback);
 	}
 
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
 	public delegate ackvar EngineEventDelegate(ackvar param);
 }

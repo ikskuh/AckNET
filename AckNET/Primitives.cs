@@ -121,6 +121,39 @@ namespace AckNET
 			return vector;
 		}
 
+		/// <summary>
+		/// Normalizes a vector to length 1.
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks>vec_normalize</remarks>
+		public Vector Normalize()
+		{
+			return this.Normalize(1.0);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="length"></param>
+		/// <returns></returns>
+		/// <remarks>vec_normalize</remarks>
+		public Vector Normalize(ackvar length)
+		{
+			Vector vec = this;
+			Native.NativeMethods.VecNormalize(ref vec, length);
+			return vec;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks>vec_length</remarks>
+		public ackvar Length
+		{
+			get { return Native.NativeMethods.VecLength(ref this); }
+		}
+
 		#region FluidInterface
 
 		public Vector SetX(ackvar x)
@@ -151,6 +184,33 @@ namespace AckNET
 		}
 
 		#endregion
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="from"></param>
+		/// <param name="to"></param>
+		/// <param name="factor"></param>
+		/// <returns></returns>
+		/// <remarks>vec_lerp</remarks>
+		public static Vector Lerp(Vector from, Vector to, ackvar factor)
+		{
+			Vector vec = new Vector();
+			Native.NativeMethods.VecLerp(ref vec, ref from, ref to, factor);
+			return vec;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		/// <remarks>vec_dist</remarks>
+		public static ackvar Distance(Vector a, Vector b)
+		{
+			return Native.NativeMethods.VecDist(ref a, ref b);
+		}
 	}
 
 	[StructLayout(LayoutKind.Sequential)]

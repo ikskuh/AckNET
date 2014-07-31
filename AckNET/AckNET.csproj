@@ -69,6 +69,12 @@
     <Compile Include="Text.cs" />
     <Compile Include="View.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ILReader\ILReader.csproj">
+      <Project>{3b40e8c3-c4e8-4085-9f82-f64308f3791c}</Project>
+      <Name>ILReader</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>D:\AckNET\AckNET.Generator\bin\Debug\AckNET.Generator.exe</PreBuildEvent>

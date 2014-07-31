@@ -150,68 +150,52 @@ namespace AckNET.Native
 		public static extern ackvar VecDot(ref Vector param0, ref Vector param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_mul", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecMul(ref Vector param0, ref Vector param1);
+		public static extern IntPtr VecMul(ref Vector param0, ref Vector param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_normalize", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecNormalize(ref Vector param0, ackvar param1);
+		public static extern IntPtr VecNormalize(ref Vector param0, ackvar param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_accelerate", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecAccelerate(ref Vector param0, ref Vector param1, ref Vector param2, ackvar param3);
+		public static extern IntPtr VecAccelerate(ref Vector param0, ref Vector param1, ref Vector param2, ackvar param3);
 
 		[DllImport("acknex.dll", EntryPoint="vec_bounce", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecBounce(ref Vector param0, ref Vector param1);
+		public static extern IntPtr VecBounce(ref Vector param0, ref Vector param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_add", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecAdd(ref Vector param0, ref Vector param1);
+		public static extern IntPtr VecAdd(ref Vector param0, ref Vector param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_diff", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecDiff(ref Vector param0, ref Vector param1, ref Vector param2);
+		public static extern IntPtr VecDiff(ref Vector param0, ref Vector param1, ref Vector param2);
 
 		[DllImport("acknex.dll", EntryPoint="vec_inverse", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecInverse(ref Vector param0);
+		public static extern IntPtr VecInverse(ref Vector param0);
 
 		[DllImport("acknex.dll", EntryPoint="vec_lerp", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecLerp(ref Vector param0, ref Vector param1, ref Vector param2, ackvar param3);
+		public static extern IntPtr VecLerp(ref Vector param0, ref Vector param1, ref Vector param2, ackvar param3);
 
 		[DllImport("acknex.dll", EntryPoint="vec_rotate", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecRotate(ref Vector param0, ref Angle param1);
+		public static extern IntPtr VecRotate(ref Vector param0, ref Angle param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_rotateback", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecRotateback(ref Vector param0, ref Angle param1);
+		public static extern IntPtr VecRotateback(ref Vector param0, ref Angle param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_rotateaxis", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecRotateaxis(ref Vector param0, ref Vector param1, ackvar param2);
+		public static extern IntPtr VecRotateaxis(ref Vector param0, ref Vector param1, ackvar param2);
 
 		[DllImport("acknex.dll", EntryPoint="vec_scale", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecScale(ref Vector param0, ackvar param1);
+		public static extern IntPtr VecScale(ref Vector param0, ackvar param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_set", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecSet(ref Vector param0, ref Vector param1);
+		public static extern IntPtr VecSet(ref Vector param0, ref Vector param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_fill", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecFill(ref Vector param0, ackvar param1);
+		public static extern IntPtr VecFill(ref Vector param0, ackvar param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_sub", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecSub(ref Vector param0, ref Vector param1);
+		public static extern IntPtr VecSub(ref Vector param0, ref Vector param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_for_angle", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		[return : MarshalAs(UnmanagedType.LPStruct)]
-		public static extern Vector VecForAngle(ref Vector param0, ref Angle param1);
+		public static extern IntPtr VecForAngle(ref Vector param0, ref Angle param1);
 
 		[DllImport("acknex.dll", EntryPoint="vec_to_angle", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar VecToAngle(ref Angle param0, ref Vector param1);
@@ -368,7 +352,7 @@ namespace AckNET.Native
 		//public static extern IntPtr StrForFloat(IntPtr param0, double param1);
 
 		//[DllImport("acknex.dll", EntryPoint="str_for_int", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		//public static extern IntPtr StrForInt(IntPtr param0, long param1);
+		//public static extern IntPtr StrForInt(IntPtr param0, int param1);
 
 		//[DllImport("acknex.dll", EntryPoint="str_for_num", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		//public static extern IntPtr StrForNum(IntPtr param0, ackvar param1);
@@ -377,7 +361,7 @@ namespace AckNET.Native
 		//public static extern double StrToFloat(string param0);
 
 		//[DllImport("acknex.dll", EntryPoint="str_to_int", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		//public static extern long StrToInt(string param0);
+		//public static extern int StrToInt(string param0);
 
 		//[DllImport("acknex.dll", EntryPoint="str_to_num", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		//public static extern ackvar StrToNum(string param0);
@@ -758,10 +742,10 @@ namespace AckNET.Native
 		public static extern ackvar EntBonescale(IntPtr param0, string param1, ref Vector param2);
 
 		[DllImport("acknex.dll", EntryPoint="ent_bonehandle", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EntBonehandle(IntPtr param0, string param1, ackvar param2);
+		public static extern int EntBonehandle(IntPtr param0, string param1, ackvar param2);
 
 		[DllImport("acknex.dll", EntryPoint="ent_boneparent", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EntBoneparent(IntPtr param0, string param1, ackvar param2);
+		public static extern int EntBoneparent(IntPtr param0, string param1, ackvar param2);
 
 		[DllImport("acknex.dll", EntryPoint="ent_fixnormals", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar EntFixnormals(IntPtr param0, ackvar param1);
@@ -849,7 +833,7 @@ namespace AckNET.Native
 		public static extern string FileForScreen(string param0, ackvar param1);
 
 		[DllImport("acknex.dll", EntryPoint="file_date", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long FileDate(string param0);
+		public static extern int FileDate(string param0);
 
 		[DllImport("acknex.dll", EntryPoint="file_delete", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern string FileDelete(string param0);
@@ -861,7 +845,7 @@ namespace AckNET.Native
 		public static extern IntPtr FileLoad(string param0, IntPtr param1, ref int param2);
 
 		[DllImport("acknex.dll", EntryPoint="file_save", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern IntPtr FileSave(string param0, IntPtr param1, long param2);
+		public static extern IntPtr FileSave(string param0, IntPtr param1, int param2);
 
 		[DllImport("acknex.dll", EntryPoint="file_open_append", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar FileOpenAppend(string param0);
@@ -945,7 +929,7 @@ namespace AckNET.Native
 		public static extern ackvar GameLoad(string param0, ackvar param1);
 
 		[DllImport("acknex.dll", EntryPoint="sys_active", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long SysActive(string param0);
+		public static extern int SysActive(string param0);
 
 		[DllImport("acknex.dll", EntryPoint="sys_exit", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar SysExit(string param0);
@@ -1270,10 +1254,10 @@ namespace AckNET.Native
 		public static extern ackvar Handle(IntPtr param0);
 
 		[DllImport("acknex.dll", EntryPoint="sys_malloc", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern IntPtr SysMalloc(long param0);
+		public static extern IntPtr SysMalloc(int param0);
 
 		[DllImport("acknex.dll", EntryPoint="sys_nxalloc", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern IntPtr SysNxalloc(long param0);
+		public static extern IntPtr SysNxalloc(int param0);
 
 		[DllImport("acknex.dll", EntryPoint="sys_free", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern void SysFree(IntPtr param0);
@@ -1292,7 +1276,7 @@ namespace AckNET.Native
 		public static extern Vector _vec(float param0, float param1, float param2);
 
 		[DllImport("acknex.dll", EntryPoint="add_buffer", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar AddBuffer(string param0, IntPtr param1, long param2);
+		public static extern ackvar AddBuffer(string param0, IntPtr param1, int param2);
 
 		[DllImport("acknex.dll", EntryPoint="add_folder", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar AddFolder(string param0);
@@ -1304,61 +1288,61 @@ namespace AckNET.Native
 		public static extern ackvar AddNew();
 
 		[DllImport("acknex.dll", EntryPoint="add_struct", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar AddStruct(IntPtr param0, long param1);
+		public static extern ackvar AddStruct(IntPtr param0, int param1);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getobj", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineGetobj(string param0);
+		public static extern int EngineGetobj(string param0);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getvar", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern IntPtr EngineGetvar(string param0, ref int param1);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getvarinfo", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineGetvarinfo(IntPtr param0, string param1, string param2, ref int param3);
+		public static extern int EngineGetvarinfo(IntPtr param0, string param1, string param2, ref int param3);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getfunc", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineGetfunc(string param0);
+		public static extern int EngineGetfunc(string param0);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getscript", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineGetscript(string param0);
+		public static extern int EngineGetscript(string param0);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getscriptinfo", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineGetscriptinfo(IntPtr param0, IntPtr param1);
+		public static extern int EngineGetscriptinfo(IntPtr param0, IntPtr param1);
 
 		[DllImport("acknex.dll", EntryPoint="engine_gettaskinfo", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineGettaskinfo(long param0, IntPtr param1, ref IntPtr param2);
+		public static extern int EngineGettaskinfo(int param0, IntPtr param1, ref IntPtr param2);
 
 		[DllImport("acknex.dll", EntryPoint="engine_callname4", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar EngineCallname4(string param0, long param1, long param2, long param3, long param4);
+		public static extern ackvar EngineCallname4(string param0, int param1, int param2, int param3, int param4);
 
 		[DllImport("acknex.dll", EntryPoint="engine_callscript4", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar EngineCallscript4(long param0, long param1, long param2, long param3, long param4);
+		public static extern ackvar EngineCallscript4(int param0, int param1, int param2, int param3, int param4);
 
 		[DllImport("acknex.dll", EntryPoint="engine_debugposition", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar EngineDebugposition(IntPtr param0, ref int param1, ref int param2);
 
 		[DllImport("acknex.dll", EntryPoint="engine_debugbreakpoint", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar EngineDebugbreakpoint(string param0, long param1, long param2);
+		public static extern ackvar EngineDebugbreakpoint(string param0, int param1, int param2);
 
 		[DllImport("acknex.dll", EntryPoint="engine_debugstep", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineDebugstep(long param0);
+		public static extern int EngineDebugstep(int param0);
 
 		[DllImport("acknex.dll", EntryPoint="engine_status", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineStatus(long param0);
+		public static extern int EngineStatus(int param0);
 
 		[DllImport("acknex.dll", EntryPoint="engine_bind", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineBind();
+		public static extern int EngineBind();
 
 		[DllImport("acknex.dll", EntryPoint="engine_callscript", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern ackvar EngineCallscript(long param0, long param1, long param2, long param3, long param4);
+		public static extern ackvar EngineCallscript(int param0, int param1, int param2, int param3, int param4);
 
 		[DllImport("acknex.dll", EntryPoint="engine_open", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern IntPtr EngineOpen(string param0, int param1);
 
 		[DllImport("acknex.dll", EntryPoint="engine_frame", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineFrame();
+		public static extern int EngineFrame();
 
 		[DllImport("acknex.dll", EntryPoint="engine_close", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern long EngineClose();
+		public static extern int EngineClose();
 
 	}
 }

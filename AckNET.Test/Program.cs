@@ -10,6 +10,8 @@ namespace AckNET.Test
 	{
 		static void Main(string[] args)
 		{
+			Acknex.AnalyzeWrapper();
+
 			Acknex.Open("-nx 200");
 			Console.WriteLine("Using version {0}", EngineVars.Version);
 
