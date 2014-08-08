@@ -8,7 +8,7 @@ namespace AckNET
 	public sealed partial class Entity : EngineObject
 	{
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="fileName"></param>
 		/// <param name="position"></param>
@@ -16,41 +16,43 @@ namespace AckNET
 		public Entity(string fileName, Vector position)
 			 : base(true, Native.NativeMethods.EntCreate(fileName, ref position, IntPtr.Zero))
 		{
-
 		}
 
 		internal Entity(IntPtr reference)
 			: base(false, reference)
 		{
-
 		}
 
-
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
 		/// <remarks>ent_getskin</remarks>
 		public Bitmap GetSkin(int id)
 		{
+			CheckValid();
 			return new Bitmap(Native.NativeMethods.EntGetskin(this.InternalPointer, id));
 		}
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="skin"></param>
 		/// <remarks>ent_setskin</remarks>
-		public void GetSkin(int id, Bitmap skin)
+		public void SetSkin(int id, Bitmap skin)
 		{
+			CheckValid();
 			Native.NativeMethods.EntSetskin(this.InternalPointer, skin, id);
 		}
 
 		public override string ToString()
 		{
-			return (this.FileName ?? "<NULL>") + " @ " + this.Position.ToString();
+			if (this.IsValid)
+				return (this.FileName ?? "<NULL>") + " @ " + this.Position.ToString();
+			else
+				return "Invalid Entity.";
 		}
 
 		/// <summary>
@@ -62,6 +64,7 @@ namespace AckNET
 		{
 			get
 			{
+				CheckValid();
 				return (EntityType)(int)Native.NativeMethods.EntType(this);
 			}
 		}

@@ -8,11 +8,11 @@ namespace AckNET
 	public class Text : EngineObject
 	{
 		/// <summary>
-  /// 
-  /// </summary>
-  /// <param name="stringCount"></param>
-  /// <param name="layer"></param>
-  /// <remarks>txt_create</remarks>
+		/// 
+		/// </summary>
+		/// <param name="stringCount"></param>
+		/// <param name="layer"></param>
+		/// <remarks>txt_create</remarks>
 		public Text(ackvar stringCount, ackvar layer)
 			: base(true, Native.NativeMethods.TxtCreate(stringCount, layer))
 		{
@@ -20,7 +20,7 @@ namespace AckNET
 		}
 
 		internal Text(IntPtr handle)
-			:base(false, handle)
+			: base(false, handle)
 		{
 
 		}

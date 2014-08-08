@@ -32,6 +32,7 @@ namespace AckNET
 		/// <remarks>snd_play</remarks>
 		public SoundHandle Play(ackvar volume, ackvar balance)
 		{
+			CheckValid();
 			return new SoundHandle(Native.NativeMethods.SndPlay(this.InternalPointer, volume, balance));
 		}
 
@@ -45,6 +46,7 @@ namespace AckNET
 		/// <remarks>snd_loop</remarks>
 		public SoundHandle Loop(ackvar volume, ackvar balance)
 		{
+			CheckValid();
 			return new SoundHandle(Native.NativeMethods.SndLoop(this.InternalPointer, volume, balance));
 		}
 	}

@@ -74,18 +74,23 @@ namespace AckNET
 
 		public bool IsUsedCreated { get; private set; }
 
+		/// <summary>
+		/// Removes this object. Only allowed if the object is user created.
+		/// </summary>
+		/// <remarks>ptr_remove</remarks>
+		public void Remove()
+		{
+			CheckValid();
+			Native.NativeMethods.PtrRemove(this);
+			this.InternalPointer = IntPtr.Zero;
+		}
+
 		public static implicit operator IntPtr(EngineObject obj)
 		{
 			if (obj == null)
 				return IntPtr.Zero;
 			else
 				return obj.InternalPointer;
-		}
-
-		protected void CheckValid()
-		{
-			if (InternalPointer == IntPtr.Zero)
-				throw new InvalidOperationException("Cannot use engine vars with uninitialized engine.");
 		}
 
 		protected ackvar GetVar(int offset)
@@ -274,6 +279,17 @@ namespace AckNET
 		//{
 		//	return this.Equals(obj as EngineObject);
 		//}
+
+		/// <summary>
+		/// Checks if the entity is valid.
+		/// </summary>
+		public void CheckValid()
+		{
+			if (!this.IsValid)
+				throw new InvalidOperationException("Cannot access an invalid entity.");
+		}
+
+		public bool IsValid { get { return this.InternalPointer != IntPtr.Zero; } }
 
 		public override int GetHashCode()
 		{

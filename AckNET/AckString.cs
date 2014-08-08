@@ -31,6 +31,7 @@ namespace AckNET
 		/// <remarks>str_cpy</remarks>
 		public void SetString(string value)
 		{
+			CheckValid();
 			Native.NativeMethods.StrCpy(this.InternalPointer, value);
 		}
 
@@ -42,6 +43,7 @@ namespace AckNET
 		/// <remarks>str_width</remarks>
 		public ackvar GetWidth(Font font)
 		{
+			CheckValid();
 			return Native.NativeMethods.StrWidth(this.Chars, font);
 		}
 	}

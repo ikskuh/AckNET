@@ -1,30 +1,27 @@
-﻿using System;
+﻿using AckNET.EngineVars;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AckNET.EngineVars;
 
 namespace AckNET.Test
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
 			Acknex.AnalyzeWrapper();
 
-			Acknex.Open("-nx 200");
-			Console.WriteLine("Using version {0}", EngineVars.Version);
+			Acknex.Run(MainMethod, "-nx 200");
+		}
 
+		private static IEnumerable<Wait> MainMethod()
+		{
 			OnTab += (s, e) => { Console.WriteLine("Pressed [TAB]"); };
 			MouseMode = 3;
 
-			// Initialize engine
-			Acknex.Frame();
-
 			Level.Load("");
-
-			Acknex.Frame();
-
+			yield return Wait.ForFrames(1);
 			EngineVars.SkyColor = Color.DeepSkyBlue;
 
 			var ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
@@ -33,7 +30,7 @@ namespace AckNET.Test
 
 			OnSpace += (s, e) => { snd.Play(100, 0); };
 
-			while (Acknex.Frame())
+			while (!(bool)KeyEsc)
 			{
 				if (ReferenceEquals(ent, EngineVars.MouseEnt))
 				{
@@ -42,13 +39,8 @@ namespace AckNET.Test
 
 				Camera.Pan += (KeyCul - KeyCur) * TimeStep;
 
-				if ((bool)KeyEsc)
-				{
-					break;
-				}
+				yield return Wait.ForFrames(1);
 			}
-
-			Acknex.Close();
 		}
 
 		private static void EngineVars_OnMouseLeftEvent(object sender, EngineEventArgs e)

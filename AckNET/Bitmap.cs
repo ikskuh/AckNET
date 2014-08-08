@@ -37,13 +37,14 @@ namespace AckNET
 		}
 
 		/// <summary>
-  /// 
-  /// </summary>
-  /// <param name="color"></param>
-  /// <param name="alpha"></param>
-  /// <remarks>bmap_fill</remarks>
+		/// 
+		/// </summary>
+		/// <param name="color"></param>
+		/// <param name="alpha"></param>
+		/// <remarks>bmap_fill</remarks>
 		public void Fill(Color color, ackvar alpha)
 		{
+			CheckValid();
 			Native.NativeMethods.BmapFill(this, ref color, alpha);
 		}
 	}

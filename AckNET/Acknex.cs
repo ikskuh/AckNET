@@ -13,6 +13,18 @@ namespace AckNET
 			return Native.NativeMethods.EngineClose() != 0;
 		}
 
+		public static void Run(SchedulableMethod mainMethod, string commandLine)
+		{
+			Acknex.Open(commandLine);
+
+			Scheduler scheduler = new Scheduler();
+			scheduler.Start(mainMethod);
+
+			while (Acknex.Frame() && scheduler.Update()) ;
+
+			Acknex.Close();
+		}
+
 		public static bool Frame()
 		{
 			return Native.NativeMethods.EngineFrame() != 0;
@@ -51,10 +63,10 @@ namespace AckNET
 							if (instr != null)
 							{
 								if (allMethods.Contains(instr.Method))
-                                {
+								{
 									methods.Remove(instr.Method);
 									var attribs = instr.Method.GetCustomAttributes(typeof(DllImportAttribute), false) as DllImportAttribute[];
-									if(attribs.Length == 1)
+									if (attribs.Length == 1)
 									{
 										Console.WriteLine("{2} -> {0}.{1}", type.Name, method.Name, attribs[0].EntryPoint);
 									}
@@ -74,7 +86,7 @@ namespace AckNET
 				(allMethods.Count - methods.Count),
 				allMethods.Count,
 				100 * (allMethods.Count - methods.Count) / allMethods.Count);
-        }
+		}
 	}
 
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]

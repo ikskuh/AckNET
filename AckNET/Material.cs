@@ -8,9 +8,9 @@ namespace AckNET
 	public partial class Material : EngineObject
 	{
 		/// <summary>
-  /// 
-  /// </summary>
-  /// <remarks>mtl_create</remarks>
+		/// 
+		/// </summary>
+		/// <remarks>mtl_create</remarks>
 		public Material()
 			: base(true, Native.NativeMethods.MtlCreate())
 		{

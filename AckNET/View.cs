@@ -33,6 +33,7 @@ namespace AckNET
 		/// <remarks>view_check</remarks>
 		public bool Check(Vector vMin, Vector vMax)
 		{
+			CheckValid();
 			return (bool)Native.NativeMethods.ViewCheck(this.InternalPointer, ref vMax, ref vMax);
 		}
 
@@ -45,6 +46,7 @@ namespace AckNET
 		/// <remarks>view_to_light</remarks>
 		public ackvar ToLight(ackvar num, ackvar mode)
 		{
+			CheckValid();
 			return Native.NativeMethods.ViewToLight(this.InternalPointer, num, mode);
 		}
 
