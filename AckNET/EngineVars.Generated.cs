@@ -1913,28 +1913,28 @@ namespace AckNET
 		public static Contact Hit { get { return Get<Contact>(2552); } set { SetObject(2552, value); } }
 
 		// ENGINE_ float* matTexture;
-// ENGINE_ float* matTexture;
+		public static IntPtr MatTexture { get { return GetPtr(2556); } set { SetPtr(2556, value); } }
 
 		// ENGINE_ float* matEffect;
-// ENGINE_ float* matEffect;
+		public static IntPtr MatEffect { get { return GetPtr(2560); } set { SetPtr(2560, value); } }
 
 		// ENGINE_ float* matView;
-// ENGINE_ float* matView;
+		public static IntPtr MatView { get { return GetPtr(2564); } set { SetPtr(2564, value); } }
 
 		// ENGINE_ float* matViewInv;
-// ENGINE_ float* matViewInv;
+		public static IntPtr MatViewInv { get { return GetPtr(2568); } set { SetPtr(2568, value); } }
 
 		// ENGINE_ float* matProj;
-// ENGINE_ float* matProj;
+		public static IntPtr MatProj { get { return GetPtr(2572); } set { SetPtr(2572, value); } }
 
 		// ENGINE_ float* matWorld;
-// ENGINE_ float* matWorld;
+		public static IntPtr MatWorld { get { return GetPtr(2576); } set { SetPtr(2576, value); } }
 
 		// ENGINE_ float* matViewProj;
-// ENGINE_ float* matViewProj;
+		public static IntPtr MatViewProj { get { return GetPtr(2580); } set { SetPtr(2580, value); } }
 
 		// ENGINE_ float* matProjInv;
-// ENGINE_ float* matProjInv;
+		public static IntPtr MatProjInv { get { return GetPtr(2584); } set { SetPtr(2584, value); } }
 
 		// void (*SendPacket)(long to,void *data,long size,long flags);
 
@@ -1985,55 +1985,55 @@ namespace AckNET
 		public static IntPtr Pd3ddev { get { return GetPtr(2716); } set { SetPtr(2716, value); } }
 
 		// ENGINE_ HWND hWnd;
-// ENGINE_ HWND hWnd;
+		public static IntPtr HWnd { get { return GetPtr(2720); } set { SetPtr(2720, value); } }
 
 		// ENGINE_ void* pd3dcaps;
 		public static IntPtr Pd3dcaps { get { return GetPtr(2724); } set { SetPtr(2724, value); } }
 
 		// ENGINE_ long hInstance;
-// ENGINE_ long hInstance;
+		public static int HInstance { get { return GetInt(2728); } set { SetInt(2728, value); } }
 
 		// ENGINE_ HWND hWndTarget;
-// ENGINE_ HWND hWndTarget;
+		public static IntPtr HWndTarget { get { return GetPtr(2732); } set { SetPtr(2732, value); } }
 
 		// ENGINE_ RECT* pRectTarget;
-// ENGINE_ RECT* pRectTarget;
+		public static IntPtr PRectTarget { get { return GetPtr(2736); } set { SetPtr(2736, value); } }
 
 		// ENGINE_ char** pPaths;
-// ENGINE_ char** pPaths;
+		public static IntPtr PPaths { get { return GetPtr(2740); } set { SetPtr(2740, value); } }
 
 		// ENGINE_ void* pVars;
 		public static IntPtr PVars { get { return GetPtr(2744); } set { SetPtr(2744, value); } }
 
 		// ENGINE_ HWND hWndParent;
-// ENGINE_ HWND hWndParent;
+		public static IntPtr HWndParent { get { return GetPtr(2748); } set { SetPtr(2748, value); } }
 
 		// ENGINE_ void* pdsbs;
 		public static IntPtr Pdsbs { get { return GetPtr(2764); } set { SetPtr(2764, value); } }
 
 		// ENGINE_ float* mat_effect1;
-// ENGINE_ float* mat_effect1;
+		public static IntPtr MatEffect1 { get { return GetPtr(2768); } set { SetPtr(2768, value); } }
 
 		// ENGINE_ float* mat_effect2;
-// ENGINE_ float* mat_effect2;
+		public static IntPtr MatEffect2 { get { return GetPtr(2772); } set { SetPtr(2772, value); } }
 
 		// ENGINE_ float* mat_effect3;
-// ENGINE_ float* mat_effect3;
+		public static IntPtr MatEffect3 { get { return GetPtr(2776); } set { SetPtr(2776, value); } }
 
 		// ENGINE_ float* mat_effect4;
-// ENGINE_ float* mat_effect4;
+		public static IntPtr MatEffect4 { get { return GetPtr(2780); } set { SetPtr(2780, value); } }
 
 		// ENGINE_ float* mat_effect5;
-// ENGINE_ float* mat_effect5;
+		public static IntPtr MatEffect5 { get { return GetPtr(2784); } set { SetPtr(2784, value); } }
 
 		// ENGINE_ float* mat_effect6;
-// ENGINE_ float* mat_effect6;
+		public static IntPtr MatEffect6 { get { return GetPtr(2788); } set { SetPtr(2788, value); } }
 
 		// ENGINE_ float* mat_effect7;
-// ENGINE_ float* mat_effect7;
+		public static IntPtr MatEffect7 { get { return GetPtr(2792); } set { SetPtr(2792, value); } }
 
 		// ENGINE_ float* mat_effect8;
-// ENGINE_ float* mat_effect8;
+		public static IntPtr MatEffect8 { get { return GetPtr(2796); } set { SetPtr(2796, value); } }
 		internal static void InitializeEvents()
 		{
 			onBksp = (x) =>

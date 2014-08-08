@@ -19,13 +19,6 @@ namespace AckNET
 		//	SetEvent(2088, onMouseLeftPtr);
 		//}
 
-		private static ackvar GetVar(int offset, int delta = 0)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			return new ackvar(Marshal.ReadInt32(dref + delta));
-		}
-
 		private static Vector GetVector(int offset)
 		{
 			CheckValid();
@@ -33,6 +26,12 @@ namespace AckNET
 				GetVar(offset, 0),
 				GetVar(offset, 4),
 				GetVar(offset, 8));
+		}
+		private static ackvar GetVar(int offset, int delta = 0)
+		{
+			CheckValid();
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			return new ackvar(Marshal.ReadInt32(dref + delta));
 		}
 
 		private static void SetVar(int offset, ackvar @var, int delta = 0)
@@ -48,6 +47,20 @@ namespace AckNET
 			SetVar(offset, @var.X, 0);
 			SetVar(offset, @var.Y, 4);
 			SetVar(offset, @var.Z, 8);
+		}
+
+		private static int GetInt(int offset, int delta = 0)
+		{
+			CheckValid();
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			return Marshal.ReadInt32(dref + delta);
+		}
+
+		private static void SetInt(int offset, int @var, int delta = 0)
+		{
+			CheckValid();
+			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
+			Marshal.WriteInt32(dref + delta, @var);
 		}
 
 		private static void SetObject(int offset, EngineObject ent)

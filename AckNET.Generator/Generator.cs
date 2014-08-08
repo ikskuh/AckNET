@@ -304,8 +304,18 @@ namespace AckNET.Generator
 							switch (parts[1])
 							{
 								case "void*":
+								case "char**":
+								case "HWND":
+								case "RECT*":
+								case "float*":
 									writer.WriteLine(
 										"\t\tpublic static IntPtr {0} {{ get {{ return GetPtr({1}); }} set {{ SetPtr({1}, value); }} }}",
+										FixName(parts[2]),
+										ptrOffset);
+									break;
+								case "long":
+									writer.WriteLine(
+										"\t\tpublic static int {0} {{ get {{ return GetInt({1}); }} set {{ SetInt({1}, value); }} }}",
 										FixName(parts[2]),
 										ptrOffset);
 									break;

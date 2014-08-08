@@ -17,6 +17,7 @@ namespace AckNET
 		{
 
 		}
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -46,6 +47,25 @@ namespace AckNET
 		{
 			CheckValid();
 			Native.NativeMethods.BmapFill(this, ref color, alpha);
+		}
+
+		/// <summary>
+		/// Locks the bitmap.
+		/// </summary>
+		/// <returns>Format of the locked image.</returns>
+		public int Lock()
+		{
+			CheckValid();
+			return (int)Native.NativeMethods.BmapLock(this, 0);
+		}
+
+		/// <summary>
+		/// Unlocks the bitmap.
+		/// </summary>
+		public void Unlock()
+		{
+			CheckValid();
+			Native.NativeMethods.BmapUnlock(this);
 		}
 	}
 }

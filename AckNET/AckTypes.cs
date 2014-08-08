@@ -326,7 +326,7 @@ namespace AckNET
 		public int Finalpitch { get { return GetInt(84); } set { SetInt(84, value); } }
 		public int Miplevels { get { return GetInt(88); } set { SetInt(88, value); } }
 		public int Finalformat { get { return GetInt(92); } set { SetInt(92, value); } }
-		public IntPtr finalbits { get { return GetPtr(96); } set { SetPtr(96, value); } }
+		public IntPtr FinalBits { get { return GetPtr(96); } set { SetPtr(96, value); } }
 	}
 
 	partial class Sound
