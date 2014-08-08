@@ -15,12 +15,25 @@ namespace AckNET.Test
 			Acknex.AnalyzeWrapper();
 
 			Application.EnableVisualStyles();
-			
-			Acknex.Run(GuiTest, "-nx 200");
+
+			Acknex.Run(MainMethod, "-nx 200");
 		}
 
-		private static IEnumerable<Wait> GuiTest()
+		private static IEnumerable<Wait> MainMethod()
 		{
+			OnTab += (s, e) => { Console.WriteLine("Pressed [TAB]"); };
+			MouseMode = 3;
+
+			Level.Load("");
+			yield return Wait.ForFrames(1);
+			EngineVars.SkyColor = Color.DeepSkyBlue;
+
+			var ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
+
+			var snd = new Sound("beep.wav");
+
+			OnSpace += (s, e) => { snd.Play(100, 0); };
+
 			WindowsFormsHost host = new WindowsFormsHost(1024, 768);
 			var tb = new TextBox()
 			{
@@ -43,8 +56,15 @@ namespace AckNET.Test
 
 			host.Controls.Add(btn);
 
-			while(true)
+			while (!(bool)KeyEsc)
 			{
+				if (ReferenceEquals(ent, EngineVars.MouseEnt))
+				{
+					ent.Pan += 1.5 * TimeStep;
+				}
+
+				Camera.Pan += (KeyCul - KeyCur) * TimeStep;
+
 				Graphics.DrawQuad(
 					host.Target,
 					new Vector(0, 0, 0),
@@ -54,34 +74,6 @@ namespace AckNET.Test
 					null,
 					100,
 					0);
-
-				yield return Wait.ForFrames(1);
-			}
-		}
-
-		private static IEnumerable<Wait> MainMethod()
-		{
-			OnTab += (s, e) => { Console.WriteLine("Pressed [TAB]"); };
-			MouseMode = 3;
-
-			Level.Load("");
-			yield return Wait.ForFrames(1);
-			EngineVars.SkyColor = Color.DeepSkyBlue;
-
-			var ent = new Entity("cargo.mdl", new Vector(550.0, 0.0, 0.0));
-
-			var snd = new Sound("beep.wav");
-
-			OnSpace += (s, e) => { snd.Play(100, 0); };
-
-			while (!(bool)KeyEsc)
-			{
-				if (ReferenceEquals(ent, EngineVars.MouseEnt))
-				{
-					ent.Pan += 1.5 * TimeStep;
-				}
-
-				Camera.Pan += (KeyCul - KeyCur) * TimeStep;
 
 				yield return Wait.ForFrames(1);
 			}
