@@ -50,17 +50,17 @@ namespace AckNET
 		internal EngineObject(bool userCreated, IntPtr ptr)
 		{
 			if (ptr == IntPtr.Zero)
-				throw new ArgumentException("Cannot create an entity with an invalid pointer.");
+				throw new ArgumentException("Cannot create an object with an invalid pointer.");
 
-			if (IsUsedCreated && registry.ContainsKey(ptr))
+			if (IsUserCreated && registry.ContainsKey(ptr))
 			{
-				throw new InvalidOperationException("You are not allowed mark an EngineObject as used created entity and initialize it with a already registered EngineObject pointer.");
+				throw new InvalidOperationException("You are not allowed mark an EngineObject as user created object and initialize it with a already registered EngineObject pointer.");
 			}
 
-			this.IsUsedCreated = userCreated;
+			this.IsUserCreated = userCreated;
 			this.InternalPointer = ptr;
 
-			if (IsUsedCreated)
+			if (IsUserCreated)
 			{
 				// Register this object so we get a reference equality.
 				registry.Add(ptr, this);
@@ -72,7 +72,7 @@ namespace AckNET
 			get; protected set;
 		}
 
-		public bool IsUsedCreated { get; private set; }
+		public bool IsUserCreated { get; private set; }
 
 		/// <summary>
 		/// Removes this object. Only allowed if the object is user created.

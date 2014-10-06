@@ -50,6 +50,14 @@ namespace AckNET
 				a.Z * b.Z);
 		}
 
+		public static Vector Scale(Vector a, double scalar)
+		{
+			return new Vector(
+				a.X * scalar,
+				a.Y * scalar,
+				a.Z * scalar);
+		}
+
 		public static Vector operator +(Vector a, Vector b)
 		{
 			return Add(a, b);
@@ -63,6 +71,15 @@ namespace AckNET
 		public static Vector operator *(Vector a, Vector b)
 		{
 			return Multiply(a, b);
+		}
+		public static Vector operator *(Vector a, double scalar)
+		{
+			return Scale(a, scalar);
+		}
+
+		public static Vector operator *(double scalar, Vector a)
+		{
+			return Scale(a, scalar);
 		}
 
 		public override string ToString()
@@ -211,6 +228,69 @@ namespace AckNET
 		{
 			return Native.NativeMethods.VecDist(ref a, ref b);
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="angle"></param>
+		/// <remarks>vec_for_angle</remarks>
+		/// <returns></returns>
+
+		public static Vector ForAngle(Angle angle)
+		{
+			Vector result = new Vector();
+			Native.NativeMethods.VecForAngle(ref result, ref angle);
+			return result;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="left"></param>
+		/// <param name="right"></param>
+		/// <remarks>vec_cross</remarks>
+		/// <returns></returns>
+		public static Vector Cross(Vector left, Vector right)
+		{
+			Vector result = new Vector();
+			Native.NativeMethods.VecCross(ref result, ref left, ref right);
+			return result;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
+		/// <param name="angle"></param>
+		/// <remarks>vec_rotate</remarks>
+		/// <returns></returns>
+		public static Vector Rotate(Vector value, Angle angle)
+		{
+			Native.NativeMethods.VecRotate(ref value, ref angle);
+			return value;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="speed"></param>
+		/// <param name="accel"></param>
+		/// <param name="friction"></param>
+		/// <remarks>vec_accelerate</remarks>
+		/// <returns></returns>
+		public static Vector Accelerate(ref Vector speed, Vector accel, double friction)
+		{
+			Vector result = new Vector();
+			Native.NativeMethods.VecAccelerate(ref result, ref speed, ref accel, friction);
+			return result;
+		}
+
+		public static Vector UnitX { get { return new Vector(1, 0, 0); } }
+		public static Vector UnitY { get { return new Vector(0, 1, 0); } }
+		public static Vector UnitZ { get { return new Vector(0, 0, 1); } }
+		public static Vector One { get { return new Vector(1, 1, 1); } }
+		public static Vector Zero { get { return new Vector(0, 0, 0); } }
+
 	}
 
 	[StructLayout(LayoutKind.Sequential)]

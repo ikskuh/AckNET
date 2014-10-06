@@ -57,10 +57,12 @@
     <Compile Include="EngineVars.cs" />
     <Compile Include="EngineVars.Generated.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="EntityFlags.cs" />
     <Compile Include="Font.cs" />
     <Compile Include="Graphics.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Material.cs" />
+    <Compile Include="MathHelper.cs" />
     <Compile Include="Native\NativeMethods.cs" />
     <Compile Include="Panel.cs" />
     <Compile Include="Particle.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Scheduler.cs" />
     <Compile Include="Sound.cs" />
     <Compile Include="Text.cs" />
+    <Compile Include="Video.cs" />
     <Compile Include="View.cs" />
     <Compile Include="Wait.cs" />
     <Compile Include="WindowsFormsHost.cs" />
@@ -81,7 +84,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>D:\AckNET\AckNET.Generator\bin\Debug\AckNET.Generator.exe</PreBuildEvent>
+    <PreBuildEvent>$(SolutionDir)AckNET.Generator\bin\Debug\AckNET.Generator.exe</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

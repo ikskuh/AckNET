@@ -2038,688 +2038,825 @@ namespace AckNET
 		{
 			onBksp = (x) =>
 			{
-				if(OnBksp != null) OnBksp(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnBksp != null) OnBksp(null, ea);
+				return ea.ReturnValue;
 			};
 			onEnter = (x) =>
 			{
-				if(OnEnter != null) OnEnter(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnEnter != null) OnEnter(null, ea);
+				return ea.ReturnValue;
 			};
 			onEsc = (x) =>
 			{
-				if(OnEsc != null) OnEsc(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnEsc != null) OnEsc(null, ea);
+				return ea.ReturnValue;
 			};
 			onAlt = (x) =>
 			{
-				if(OnAlt != null) OnAlt(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnAlt != null) OnAlt(null, ea);
+				return ea.ReturnValue;
 			};
 			onCtrl = (x) =>
 			{
-				if(OnCtrl != null) OnCtrl(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCtrl != null) OnCtrl(null, ea);
+				return ea.ReturnValue;
 			};
 			onShiftl = (x) =>
 			{
-				if(OnShiftl != null) OnShiftl(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnShiftl != null) OnShiftl(null, ea);
+				return ea.ReturnValue;
 			};
 			onShiftr = (x) =>
 			{
-				if(OnShiftr != null) OnShiftr(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnShiftr != null) OnShiftr(null, ea);
+				return ea.ReturnValue;
 			};
 			onSpace = (x) =>
 			{
-				if(OnSpace != null) OnSpace(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnSpace != null) OnSpace(null, ea);
+				return ea.ReturnValue;
 			};
 			onTab = (x) =>
 			{
-				if(OnTab != null) OnTab(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnTab != null) OnTab(null, ea);
+				return ea.ReturnValue;
 			};
 			onF1 = (x) =>
 			{
-				if(OnF1 != null) OnF1(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF1 != null) OnF1(null, ea);
+				return ea.ReturnValue;
 			};
 			onF2 = (x) =>
 			{
-				if(OnF2 != null) OnF2(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF2 != null) OnF2(null, ea);
+				return ea.ReturnValue;
 			};
 			onF3 = (x) =>
 			{
-				if(OnF3 != null) OnF3(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF3 != null) OnF3(null, ea);
+				return ea.ReturnValue;
 			};
 			onF4 = (x) =>
 			{
-				if(OnF4 != null) OnF4(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF4 != null) OnF4(null, ea);
+				return ea.ReturnValue;
 			};
 			onF5 = (x) =>
 			{
-				if(OnF5 != null) OnF5(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF5 != null) OnF5(null, ea);
+				return ea.ReturnValue;
 			};
 			onF6 = (x) =>
 			{
-				if(OnF6 != null) OnF6(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF6 != null) OnF6(null, ea);
+				return ea.ReturnValue;
 			};
 			onF7 = (x) =>
 			{
-				if(OnF7 != null) OnF7(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF7 != null) OnF7(null, ea);
+				return ea.ReturnValue;
 			};
 			onF8 = (x) =>
 			{
-				if(OnF8 != null) OnF8(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF8 != null) OnF8(null, ea);
+				return ea.ReturnValue;
 			};
 			onF9 = (x) =>
 			{
-				if(OnF9 != null) OnF9(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF9 != null) OnF9(null, ea);
+				return ea.ReturnValue;
 			};
 			onF10 = (x) =>
 			{
-				if(OnF10 != null) OnF10(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF10 != null) OnF10(null, ea);
+				return ea.ReturnValue;
 			};
 			onF11 = (x) =>
 			{
-				if(OnF11 != null) OnF11(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF11 != null) OnF11(null, ea);
+				return ea.ReturnValue;
 			};
 			onF12 = (x) =>
 			{
-				if(OnF12 != null) OnF12(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF12 != null) OnF12(null, ea);
+				return ea.ReturnValue;
 			};
 			onA = (x) =>
 			{
-				if(OnA != null) OnA(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnA != null) OnA(null, ea);
+				return ea.ReturnValue;
 			};
 			onB = (x) =>
 			{
-				if(OnB != null) OnB(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnB != null) OnB(null, ea);
+				return ea.ReturnValue;
 			};
 			onC = (x) =>
 			{
-				if(OnC != null) OnC(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnC != null) OnC(null, ea);
+				return ea.ReturnValue;
 			};
 			onD = (x) =>
 			{
-				if(OnD != null) OnD(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnD != null) OnD(null, ea);
+				return ea.ReturnValue;
 			};
 			onE = (x) =>
 			{
-				if(OnE != null) OnE(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnE != null) OnE(null, ea);
+				return ea.ReturnValue;
 			};
 			onF = (x) =>
 			{
-				if(OnF != null) OnF(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnF != null) OnF(null, ea);
+				return ea.ReturnValue;
 			};
 			onG = (x) =>
 			{
-				if(OnG != null) OnG(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnG != null) OnG(null, ea);
+				return ea.ReturnValue;
 			};
 			onH = (x) =>
 			{
-				if(OnH != null) OnH(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnH != null) OnH(null, ea);
+				return ea.ReturnValue;
 			};
 			onI = (x) =>
 			{
-				if(OnI != null) OnI(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnI != null) OnI(null, ea);
+				return ea.ReturnValue;
 			};
 			onJ = (x) =>
 			{
-				if(OnJ != null) OnJ(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJ != null) OnJ(null, ea);
+				return ea.ReturnValue;
 			};
 			onK = (x) =>
 			{
-				if(OnK != null) OnK(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnK != null) OnK(null, ea);
+				return ea.ReturnValue;
 			};
 			onL = (x) =>
 			{
-				if(OnL != null) OnL(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnL != null) OnL(null, ea);
+				return ea.ReturnValue;
 			};
 			onM = (x) =>
 			{
-				if(OnM != null) OnM(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnM != null) OnM(null, ea);
+				return ea.ReturnValue;
 			};
 			onN = (x) =>
 			{
-				if(OnN != null) OnN(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnN != null) OnN(null, ea);
+				return ea.ReturnValue;
 			};
 			onO = (x) =>
 			{
-				if(OnO != null) OnO(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnO != null) OnO(null, ea);
+				return ea.ReturnValue;
 			};
 			onP = (x) =>
 			{
-				if(OnP != null) OnP(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnP != null) OnP(null, ea);
+				return ea.ReturnValue;
 			};
 			onQ = (x) =>
 			{
-				if(OnQ != null) OnQ(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnQ != null) OnQ(null, ea);
+				return ea.ReturnValue;
 			};
 			onR = (x) =>
 			{
-				if(OnR != null) OnR(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnR != null) OnR(null, ea);
+				return ea.ReturnValue;
 			};
 			onS = (x) =>
 			{
-				if(OnS != null) OnS(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnS != null) OnS(null, ea);
+				return ea.ReturnValue;
 			};
 			onT = (x) =>
 			{
-				if(OnT != null) OnT(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnT != null) OnT(null, ea);
+				return ea.ReturnValue;
 			};
 			onU = (x) =>
 			{
-				if(OnU != null) OnU(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnU != null) OnU(null, ea);
+				return ea.ReturnValue;
 			};
 			onV = (x) =>
 			{
-				if(OnV != null) OnV(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnV != null) OnV(null, ea);
+				return ea.ReturnValue;
 			};
 			onW = (x) =>
 			{
-				if(OnW != null) OnW(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnW != null) OnW(null, ea);
+				return ea.ReturnValue;
 			};
 			onX = (x) =>
 			{
-				if(OnX != null) OnX(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnX != null) OnX(null, ea);
+				return ea.ReturnValue;
 			};
 			onY = (x) =>
 			{
-				if(OnY != null) OnY(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnY != null) OnY(null, ea);
+				return ea.ReturnValue;
 			};
 			onZ = (x) =>
 			{
-				if(OnZ != null) OnZ(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnZ != null) OnZ(null, ea);
+				return ea.ReturnValue;
 			};
 			onCuu = (x) =>
 			{
-				if(OnCuu != null) OnCuu(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCuu != null) OnCuu(null, ea);
+				return ea.ReturnValue;
 			};
 			onCud = (x) =>
 			{
-				if(OnCud != null) OnCud(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCud != null) OnCud(null, ea);
+				return ea.ReturnValue;
 			};
 			onCur = (x) =>
 			{
-				if(OnCur != null) OnCur(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCur != null) OnCur(null, ea);
+				return ea.ReturnValue;
 			};
 			onCul = (x) =>
 			{
-				if(OnCul != null) OnCul(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCul != null) OnCul(null, ea);
+				return ea.ReturnValue;
 			};
 			onPgup = (x) =>
 			{
-				if(OnPgup != null) OnPgup(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnPgup != null) OnPgup(null, ea);
+				return ea.ReturnValue;
 			};
 			onPgdn = (x) =>
 			{
-				if(OnPgdn != null) OnPgdn(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnPgdn != null) OnPgdn(null, ea);
+				return ea.ReturnValue;
 			};
 			onHome = (x) =>
 			{
-				if(OnHome != null) OnHome(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnHome != null) OnHome(null, ea);
+				return ea.ReturnValue;
 			};
 			onEnd = (x) =>
 			{
-				if(OnEnd != null) OnEnd(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnEnd != null) OnEnd(null, ea);
+				return ea.ReturnValue;
 			};
 			onIns = (x) =>
 			{
-				if(OnIns != null) OnIns(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnIns != null) OnIns(null, ea);
+				return ea.ReturnValue;
 			};
 			onDel = (x) =>
 			{
-				if(OnDel != null) OnDel(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnDel != null) OnDel(null, ea);
+				return ea.ReturnValue;
 			};
 			onCar = (x) =>
 			{
-				if(OnCar != null) OnCar(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCar != null) OnCar(null, ea);
+				return ea.ReturnValue;
 			};
 			onCal = (x) =>
 			{
-				if(OnCal != null) OnCal(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCal != null) OnCal(null, ea);
+				return ea.ReturnValue;
 			};
 			onSlash = (x) =>
 			{
-				if(OnSlash != null) OnSlash(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnSlash != null) OnSlash(null, ea);
+				return ea.ReturnValue;
 			};
 			onEquals = (x) =>
 			{
-				if(OnEquals != null) OnEquals(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnEquals != null) OnEquals(null, ea);
+				return ea.ReturnValue;
 			};
 			onPeriod = (x) =>
 			{
-				if(OnPeriod != null) OnPeriod(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnPeriod != null) OnPeriod(null, ea);
+				return ea.ReturnValue;
 			};
 			onComma = (x) =>
 			{
-				if(OnComma != null) OnComma(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnComma != null) OnComma(null, ea);
+				return ea.ReturnValue;
 			};
 			onBrackl = (x) =>
 			{
-				if(OnBrackl != null) OnBrackl(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnBrackl != null) OnBrackl(null, ea);
+				return ea.ReturnValue;
 			};
 			onBrackr = (x) =>
 			{
-				if(OnBrackr != null) OnBrackr(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnBrackr != null) OnBrackr(null, ea);
+				return ea.ReturnValue;
 			};
 			onSemic = (x) =>
 			{
-				if(OnSemic != null) OnSemic(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnSemic != null) OnSemic(null, ea);
+				return ea.ReturnValue;
 			};
 			onBksl = (x) =>
 			{
-				if(OnBksl != null) OnBksl(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnBksl != null) OnBksl(null, ea);
+				return ea.ReturnValue;
 			};
 			onApos = (x) =>
 			{
-				if(OnApos != null) OnApos(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnApos != null) OnApos(null, ea);
+				return ea.ReturnValue;
 			};
 			onMinusc = (x) =>
 			{
-				if(OnMinusc != null) OnMinusc(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnMinusc != null) OnMinusc(null, ea);
+				return ea.ReturnValue;
 			};
 			onGrave = (x) =>
 			{
-				if(OnGrave != null) OnGrave(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnGrave != null) OnGrave(null, ea);
+				return ea.ReturnValue;
 			};
 			onCaps = (x) =>
 			{
-				if(OnCaps != null) OnCaps(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnCaps != null) OnCaps(null, ea);
+				return ea.ReturnValue;
 			};
 			onScrlk = (x) =>
 			{
-				if(OnScrlk != null) OnScrlk(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnScrlk != null) OnScrlk(null, ea);
+				return ea.ReturnValue;
 			};
 			onPlus = (x) =>
 			{
-				if(OnPlus != null) OnPlus(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnPlus != null) OnPlus(null, ea);
+				return ea.ReturnValue;
 			};
 			onSz = (x) =>
 			{
-				if(OnSz != null) OnSz(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnSz != null) OnSz(null, ea);
+				return ea.ReturnValue;
 			};
 			onAe = (x) =>
 			{
-				if(OnAe != null) OnAe(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnAe != null) OnAe(null, ea);
+				return ea.ReturnValue;
 			};
 			onUe = (x) =>
 			{
-				if(OnUe != null) OnUe(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnUe != null) OnUe(null, ea);
+				return ea.ReturnValue;
 			};
 			onOe = (x) =>
 			{
-				if(OnOe != null) OnOe(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnOe != null) OnOe(null, ea);
+				return ea.ReturnValue;
 			};
 			on1 = (x) =>
 			{
-				if(On1 != null) On1(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On1 != null) On1(null, ea);
+				return ea.ReturnValue;
 			};
 			on2 = (x) =>
 			{
-				if(On2 != null) On2(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On2 != null) On2(null, ea);
+				return ea.ReturnValue;
 			};
 			on3 = (x) =>
 			{
-				if(On3 != null) On3(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On3 != null) On3(null, ea);
+				return ea.ReturnValue;
 			};
 			on4 = (x) =>
 			{
-				if(On4 != null) On4(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On4 != null) On4(null, ea);
+				return ea.ReturnValue;
 			};
 			on5 = (x) =>
 			{
-				if(On5 != null) On5(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On5 != null) On5(null, ea);
+				return ea.ReturnValue;
 			};
 			on6 = (x) =>
 			{
-				if(On6 != null) On6(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On6 != null) On6(null, ea);
+				return ea.ReturnValue;
 			};
 			on7 = (x) =>
 			{
-				if(On7 != null) On7(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On7 != null) On7(null, ea);
+				return ea.ReturnValue;
 			};
 			on8 = (x) =>
 			{
-				if(On8 != null) On8(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On8 != null) On8(null, ea);
+				return ea.ReturnValue;
 			};
 			on9 = (x) =>
 			{
-				if(On9 != null) On9(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On9 != null) On9(null, ea);
+				return ea.ReturnValue;
 			};
 			on0 = (x) =>
 			{
-				if(On0 != null) On0(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(On0 != null) On0(null, ea);
+				return ea.ReturnValue;
 			};
 			onPause = (x) =>
 			{
-				if(OnPause != null) OnPause(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnPause != null) OnPause(null, ea);
+				return ea.ReturnValue;
 			};
 			onMouseLeft = (x) =>
 			{
-				if(OnMouseLeft != null) OnMouseLeft(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnMouseLeft != null) OnMouseLeft(null, ea);
+				return ea.ReturnValue;
 			};
 			onMouseRight = (x) =>
 			{
-				if(OnMouseRight != null) OnMouseRight(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnMouseRight != null) OnMouseRight(null, ea);
+				return ea.ReturnValue;
 			};
 			onMouseMiddle = (x) =>
 			{
-				if(OnMouseMiddle != null) OnMouseMiddle(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnMouseMiddle != null) OnMouseMiddle(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy1 = (x) =>
 			{
-				if(OnJoy1 != null) OnJoy1(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy1 != null) OnJoy1(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy2 = (x) =>
 			{
-				if(OnJoy2 != null) OnJoy2(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy2 != null) OnJoy2(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy3 = (x) =>
 			{
-				if(OnJoy3 != null) OnJoy3(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy3 != null) OnJoy3(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy4 = (x) =>
 			{
-				if(OnJoy4 != null) OnJoy4(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy4 != null) OnJoy4(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy5 = (x) =>
 			{
-				if(OnJoy5 != null) OnJoy5(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy5 != null) OnJoy5(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy6 = (x) =>
 			{
-				if(OnJoy6 != null) OnJoy6(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy6 != null) OnJoy6(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy7 = (x) =>
 			{
-				if(OnJoy7 != null) OnJoy7(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy7 != null) OnJoy7(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy8 = (x) =>
 			{
-				if(OnJoy8 != null) OnJoy8(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy8 != null) OnJoy8(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy9 = (x) =>
 			{
-				if(OnJoy9 != null) OnJoy9(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy9 != null) OnJoy9(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy10 = (x) =>
 			{
-				if(OnJoy10 != null) OnJoy10(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy10 != null) OnJoy10(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy11 = (x) =>
 			{
-				if(OnJoy11 != null) OnJoy11(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy11 != null) OnJoy11(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy12 = (x) =>
 			{
-				if(OnJoy12 != null) OnJoy12(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy12 != null) OnJoy12(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy21 = (x) =>
 			{
-				if(OnJoy21 != null) OnJoy21(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy21 != null) OnJoy21(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy22 = (x) =>
 			{
-				if(OnJoy22 != null) OnJoy22(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy22 != null) OnJoy22(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy23 = (x) =>
 			{
-				if(OnJoy23 != null) OnJoy23(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy23 != null) OnJoy23(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy24 = (x) =>
 			{
-				if(OnJoy24 != null) OnJoy24(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy24 != null) OnJoy24(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy25 = (x) =>
 			{
-				if(OnJoy25 != null) OnJoy25(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy25 != null) OnJoy25(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy26 = (x) =>
 			{
-				if(OnJoy26 != null) OnJoy26(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy26 != null) OnJoy26(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy27 = (x) =>
 			{
-				if(OnJoy27 != null) OnJoy27(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy27 != null) OnJoy27(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy28 = (x) =>
 			{
-				if(OnJoy28 != null) OnJoy28(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy28 != null) OnJoy28(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy29 = (x) =>
 			{
-				if(OnJoy29 != null) OnJoy29(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy29 != null) OnJoy29(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy210 = (x) =>
 			{
-				if(OnJoy210 != null) OnJoy210(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy210 != null) OnJoy210(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy211 = (x) =>
 			{
-				if(OnJoy211 != null) OnJoy211(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy211 != null) OnJoy211(null, ea);
+				return ea.ReturnValue;
 			};
 			onJoy212 = (x) =>
 			{
-				if(OnJoy212 != null) OnJoy212(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnJoy212 != null) OnJoy212(null, ea);
+				return ea.ReturnValue;
 			};
 			onAnykey = (x) =>
 			{
-				if(OnAnykey != null) OnAnykey(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnAnykey != null) OnAnykey(null, ea);
+				return ea.ReturnValue;
 			};
 			onClick = (x) =>
 			{
-				if(OnClick != null) OnClick(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnClick != null) OnClick(null, ea);
+				return ea.ReturnValue;
 			};
 			onMouseStop = (x) =>
 			{
-				if(OnMouseStop != null) OnMouseStop(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnMouseStop != null) OnMouseStop(null, ea);
+				return ea.ReturnValue;
 			};
 			onClose = (x) =>
 			{
-				if(OnClose != null) OnClose(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnClose != null) OnClose(null, ea);
+				return ea.ReturnValue;
 			};
 			onLoad = (x) =>
 			{
-				if(OnLoad != null) OnLoad(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnLoad != null) OnLoad(null, ea);
+				return ea.ReturnValue;
 			};
 			onLevel = (x) =>
 			{
-				if(OnLevel != null) OnLevel(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnLevel != null) OnLevel(null, ea);
+				return ea.ReturnValue;
 			};
 			onServer = (x) =>
 			{
-				if(OnServer != null) OnServer(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnServer != null) OnServer(null, ea);
+				return ea.ReturnValue;
 			};
 			onClient = (x) =>
 			{
-				if(OnClient != null) OnClient(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnClient != null) OnClient(null, ea);
+				return ea.ReturnValue;
 			};
 			onD3dLost = (x) =>
 			{
-				if(OnD3dLost != null) OnD3dLost(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnD3dLost != null) OnD3dLost(null, ea);
+				return ea.ReturnValue;
 			};
 			onD3dReset = (x) =>
 			{
-				if(OnD3dReset != null) OnD3dReset(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnD3dReset != null) OnD3dReset(null, ea);
+				return ea.ReturnValue;
 			};
 			renderSky = (x) =>
 			{
-				if(RenderSky != null) RenderSky(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(RenderSky != null) RenderSky(null, ea);
+				return ea.ReturnValue;
 			};
 			renderWorld = (x) =>
 			{
-				if(RenderWorld != null) RenderWorld(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(RenderWorld != null) RenderWorld(null, ea);
+				return ea.ReturnValue;
 			};
 			renderEntities = (x) =>
 			{
-				if(RenderEntities != null) RenderEntities(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(RenderEntities != null) RenderEntities(null, ea);
+				return ea.ReturnValue;
 			};
 			renderSolid = (x) =>
 			{
-				if(RenderSolid != null) RenderSolid(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(RenderSolid != null) RenderSolid(null, ea);
+				return ea.ReturnValue;
 			};
 			onExit = (x) =>
 			{
-				if(OnExit != null) OnExit(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnExit != null) OnExit(null, ea);
+				return ea.ReturnValue;
 			};
 			onFrame = (x) =>
 			{
-				if(OnFrame != null) OnFrame(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnFrame != null) OnFrame(null, ea);
+				return ea.ReturnValue;
 			};
 			onMaximize = (x) =>
 			{
-				if(OnMaximize != null) OnMaximize(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnMaximize != null) OnMaximize(null, ea);
+				return ea.ReturnValue;
 			};
 			onMinimize = (x) =>
 			{
-				if(OnMinimize != null) OnMinimize(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnMinimize != null) OnMinimize(null, ea);
+				return ea.ReturnValue;
 			};
 			onResize = (x) =>
 			{
-				if(OnResize != null) OnResize(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnResize != null) OnResize(null, ea);
+				return ea.ReturnValue;
 			};
 			onLevelLoad = (x) =>
 			{
-				if(OnLevelLoad != null) OnLevelLoad(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnLevelLoad != null) OnLevelLoad(null, ea);
+				return ea.ReturnValue;
 			};
 			onEntRemove = (x) =>
 			{
-				if(OnEntRemove != null) OnEntRemove(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(OnEntRemove != null) OnEntRemove(null, ea);
+				return ea.ReturnValue;
 			};
 			renderLayer = (x) =>
 			{
-				if(RenderLayer != null) RenderLayer(null, new EngineEventArgs(x));
-				return 0.0;
+				var ea = new EngineEventArgs(x);
+				if(RenderLayer != null) RenderLayer(null, ea);
+				return ea.ReturnValue;
 			};
 			SetEvent(1736, onBksp);
 			SetEvent(1740, onEnter);

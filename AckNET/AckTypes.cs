@@ -27,7 +27,7 @@ namespace AckNET
 		public ackvar ScaleY { get { return GetVar(44); } set { SetVar(44, value); } }
 		public ackvar ScaleZ { get { return GetVar(48); } set { SetVar(48, value); } }
 
-		public int Flags { get { return GetInt(52); } set { SetInt(52, value); } }
+		public EntityFlags Flags { get { return (EntityFlags)GetInt(52); } set { SetInt(52, (int)value); } }
 
 		public ackvar Frame { get { return GetVar(56); } set { SetVar(56, value); } }
 
@@ -55,7 +55,7 @@ namespace AckNET
 		public int EMask { get { return GetInt(96); } set { SetInt(96, value); } }
 
 
-		public int EFlags { get { return GetInt(100); } set { SetInt(100, value); } }
+		public EntityEFlags EFlags { get { return (EntityEFlags)GetInt(100); } set { SetInt(100, (int)value); } }
 
 
 		public Vector Minimum { get { return GetVector(104); } set { SetVector(104, value); } }
@@ -98,7 +98,7 @@ namespace AckNET
 
 		public ackvar Group { get { return GetVar(564); } set { SetVar(564, value); } }
 
-		public int Flags2 { get { return GetInt(568); } set { SetInt(568, value); } }
+		public EntitiyFlags2 Flags2 { get { return (EntitiyFlags2)GetInt(568); } set { SetInt(568, (int)value); } }
 
 		public string Attachname { get { return GetString(572); } }
 

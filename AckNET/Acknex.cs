@@ -8,6 +8,20 @@ namespace AckNET
 {
 	public static class Acknex
 	{
+		public static void AddFolder(string path)
+		{
+			Native.NativeMethods.AddFolder(path);
+		}
+		public static void AddResource(string path)
+		{
+			Native.NativeMethods.AddResource(path);
+		}
+
+		public static void AddNew()
+		{
+			Native.NativeMethods.AddNew();
+		}
+
 		public static bool Close()
 		{
 			return Native.NativeMethods.EngineClose() != 0;
@@ -40,6 +54,12 @@ namespace AckNET
 			return EngineVars.InternalPointer != IntPtr.Zero;
 		}
 
+		public static void Exit(string message)
+		{
+			Native.NativeMethods.SysExit(message);
+		}
+
+#if DEBUG
 		public static void AnalyzeWrapper()
 		{
 			HashSet<MethodBase> allMethods = new HashSet<MethodBase>();
@@ -87,6 +107,7 @@ namespace AckNET
 				allMethods.Count,
 				100 * (allMethods.Count - methods.Count) / allMethods.Count);
 		}
+#endif
 	}
 
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]

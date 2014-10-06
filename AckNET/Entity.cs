@@ -18,6 +18,19 @@ namespace AckNET
 		{
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="fileName"></param>
+		/// <param name="flags"></param>
+		/// <param name="layer"></param>
+		/// <remarks>ent_createlayer</remarks>
+		public Entity(string fileName, EntitiyFlags2 flags, double layer) : 
+			base(true, Native.NativeMethods.EntCreatelayer(fileName, (int)flags, layer))
+		{
+
+		}
+
 		internal Entity(IntPtr reference)
 			: base(false, reference)
 		{

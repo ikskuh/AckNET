@@ -21,5 +21,10 @@ namespace AckNET
 			: base(false, reference)
 		{
 		}
+
+		public IntPtr Load(string source)
+		{
+			return Native.NativeMethods.EffectLoad(this, source);
+		}
 	}
 }

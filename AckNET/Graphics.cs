@@ -107,7 +107,7 @@ namespace AckNET
 		public static void DrawQuad(Bitmap bitmap, Vector position, Vector? offset, Vector? size, Vector? scale, Color? color, ackvar alpha, ackvar angle)
 		{
 			Vector vOffset = offset ?? new Vector(0, 0, 0);
-			Vector vSize = size ?? new Vector(bitmap.Width, bitmap.Height);
+			Vector vSize = size ?? (bitmap != null ? new Vector(bitmap.Width, bitmap.Height) : new Vector(0, 0));
 			Vector vScale = scale ?? new Vector(1, 1);
 			Color vColor = color ?? new Color(255, 255, 255);
 

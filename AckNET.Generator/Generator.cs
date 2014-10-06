@@ -30,7 +30,7 @@ namespace AckNET.Generator
 				lines[i] = Regex.Replace(lines[i].Trim(), @"\s+", " ");
 			}
 
-			using (var writer = new StreamWriter(@"D:\AckNET\AckNET\Native\NativeMethods.cs"))
+			using (var writer = new StreamWriter(@"D:\projects\AckNET\AckNET\Native\NativeMethods.cs"))
 			{
 				writer.WriteLine("using System;");
 				writer.WriteLine("using System.Runtime.InteropServices;");
@@ -166,7 +166,7 @@ namespace AckNET.Generator
 			Regex stringFix = new Regex(@"\s+", RegexOptions.Compiled);
 
 			var lines = File.ReadAllLines(@"C:\Program Files (x86)\GStudio8\sdk_engine\avars2.h");
-			using (var writer = new StreamWriter(@"D:\AckNET\AckNET\EngineVars.Generated.cs"))
+			using (var writer = new StreamWriter(@"D:\projects\AckNET\AckNET\EngineVars.Generated.cs"))
 			{
 				writer.WriteLine("namespace AckNET\n{\n\tusing System;\n\tpartial class EngineVars\n\t{\n");
 				int ptrOffset = 0;
@@ -349,8 +349,9 @@ namespace AckNET.Generator
 				{
 					writer.WriteLine("\t\t\t{0} = (x) =>", ev.Variable);
 					writer.WriteLine("\t\t\t{");
-					writer.WriteLine("\t\t\t\tif({0} != null) {0}(null, new EngineEventArgs(x));", ev.Event);
-					writer.WriteLine("\t\t\t\treturn 0.0;");
+					writer.WriteLine("\t\t\t\tvar ea = new EngineEventArgs(x);");
+					writer.WriteLine("\t\t\t\tif({0} != null) {0}(null, ea);", ev.Event);
+					writer.WriteLine("\t\t\t\treturn ea.ReturnValue;");
 					writer.WriteLine("\t\t\t};");
 				}
 

@@ -10,5 +10,7 @@ namespace AckNET
 		}
 
 		public ackvar Param { get; private set; }
-	}
+
+		public ackvar ReturnValue { get; set; }
+}
 }
