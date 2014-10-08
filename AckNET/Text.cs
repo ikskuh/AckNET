@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AckNET
 {
-	public class Text : EngineObject
+	public sealed partial class Text : EngineObject
 	{
 		/// <summary>
 		/// 

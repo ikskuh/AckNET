@@ -176,58 +176,20 @@ namespace AckNET
 			CheckValid();
 			Marshal.WriteInt32(InternalPointer + offset, BitConverter.ToInt32(BitConverter.GetBytes(@var), 0));
 		}
-		protected void SetObject(int offset, EngineObject ent)
+		protected void Set(int offset, EngineObject ent)
 		{
 			CheckValid();
 			IntPtr ptr = ent != null ? ent.InternalPointer : IntPtr.Zero;
 			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
 		}
 
-		protected Entity GetEntity(int offset)
+		protected T Get<T>(int offset)
+			where T : EngineObject
 		{
 			CheckValid();
 			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
 			if (dref != IntPtr.Zero)
-				return new Entity(dref);
-			else
-				return null;
-		}
-		protected Bitmap GetBitmap(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new Bitmap(dref);
-			else
-				return null;
-		}
-
-		protected View GetView(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new View(dref);
-			else
-				return null;
-		}
-
-		protected Sound GetSound(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new Sound(dref);
-			else
-				return null;
-		}
-
-		protected Material GetMaterial(int offset)
-		{
-			CheckValid();
-			var dref = Marshal.ReadIntPtr(InternalPointer + offset);
-			if (dref != IntPtr.Zero)
-				return new Material(dref);
+				return EngineObject.Get<T>(dref);
 			else
 				return null;
 		}
@@ -248,12 +210,31 @@ namespace AckNET
 			return Marshal.PtrToStringAnsi(GetPtr(offset));
 		}
 
-		protected void SetEvent(int offset, EngineEventDelegate @event)
+
+		protected void SetString(int offset, NativeString str, string value)
 		{
-			IntPtr ptr = IntPtr.Zero;
-			if (@event != null)
-				ptr = Marshal.GetFunctionPointerForDelegate(@event);
-			Marshal.WriteIntPtr(InternalPointer + offset, ptr);
+			CheckValid();
+			str.Update(value);
+			Marshal.WriteIntPtr(InternalPointer + offset, str.Pointer);
+		}
+
+		protected Delegate GetEvent(int offset, ref NativeEvent ne, Type type)
+		{
+			var ptr = GetPtr(offset);
+			if (ne.Pointer == ptr)
+				return ne.Delegate;
+			ne.Delegate = Marshal.GetDelegateForFunctionPointer(ptr, type);
+			return ne.Delegate;
+		}
+
+		protected void SetEvent(int offset, ref NativeEvent ne, Delegate ev)
+		{
+			if (ne.Delegate != ev)
+			{
+				ne.Delegate = ev;
+				ne.Pointer = Marshal.GetFunctionPointerForDelegate(ev);
+			}
+			SetPtr(offset, ne.Pointer);
 		}
 
 		//public static bool operator ==(EngineObject a, EngineObject b)
@@ -299,6 +280,48 @@ namespace AckNET
 		public override string ToString()
 		{
 			return this.GetType().Name + "[" + this.InternalPointer + "]";
+		}
+
+		protected struct NativeEvent
+		{
+			public IntPtr Pointer;
+			public Delegate Delegate;
+		}
+
+		protected class NativeString
+		{
+			public IntPtr Pointer { get; private set; }
+			public int Length { get; private set;  }
+
+			public NativeString()
+			{
+				this.Length = 0;
+				this.Pointer = IntPtr.Zero;
+
+				this.Update(new string('\0', 128));
+			}
+
+			~NativeString()
+			{
+				Marshal.FreeHGlobal(this.Pointer);
+			}
+
+			public void Update(string value)
+			{
+				if (value.Length >= this.Length)
+				{
+					// We don't have enough space for string + '\0'
+					if (this.Pointer != IntPtr.Zero) Marshal.FreeHGlobal(this.Pointer);
+					this.Length = value.Length + 1;
+					this.Pointer = Marshal.AllocHGlobal(this.Length);
+				}
+
+				var text = Encoding.ASCII.GetBytes(value).Concat(new byte[] { 0 }).ToArray();
+				memcpy(this.Pointer, text, text.Length);
+			}
+
+			[DllImport("msvcrt.dll", EntryPoint = "memcpy", CallingConvention = CallingConvention.Cdecl, SetLastError = false)]
+			private static extern IntPtr memcpy(IntPtr dest, byte[] source, int length);
 		}
 	}
 }

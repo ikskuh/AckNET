@@ -5,6 +5,7 @@ namespace AckNET
 
 	partial class Entity
 	{
+		/*
 		public string FileName { get { return GetString(12); } }
 
 		public Vector Position { get { return GetVector(16); } set { SetVector(16, value); } }
@@ -137,6 +138,7 @@ namespace AckNET
 
 		public ackvar Clipfactor { get { return GetVar(628); } set { SetVar(628, value); } }
 
+		*/
 		/*
 		typedef struct ENTITY {
 			C_LINK link; 
@@ -388,6 +390,72 @@ namespace AckNET
 		public Bitmap Skin4 { get { return GetBitmap(100); } set { SetObject(100, value); } }
 		public string Texname { get { return GetString(104); } /* set { SetVar(104, value); } */ }
 		public ackvar Subset { get { return GetVar(108); } set { SetVar(108, value); } }
+	}
 
+	partial class Particle
+	{
+		public ackvar Lifespan { get { return GetVar(12); } set { SetVar(12, value); } }
+
+		public Vector Position { get { return GetVector(16); } set { SetVector(16, value); } }
+		public ackvar X { get { return GetVar(16); } set { SetVar(16, value); } }
+		public ackvar Y { get { return GetVar(20); } set { SetVar(20, value); } }
+		public ackvar Z { get { return GetVar(24); } set { SetVar(24, value); } }
+
+		public Vector Velocity { get { return GetVector(28); } set { SetVector(28, value); } }
+		public ackvar VelX { get { return GetVar(28); } set { SetVar(28, value); } }
+		public ackvar VelY { get { return GetVar(32); } set { SetVar(32, value); } }
+		public ackvar VelZ { get { return GetVar(36); } set { SetVar(36, value); } }
+
+		public ackvar Size { get { return GetVar(40); } set { SetVar(40, value); } }
+
+		public Bitmap Bitmap { get { return GetBitmap(44); } set { SetObject(44, value); } }
+
+
+		EngineEventDelegate @event;
+		public EngineEventDelegate Event { get { return @event; } set { @event = value; SetEvent(48, @event); } }
+
+
+		ParticleFlags Flags { get { return (ParticleFlags)GetInt(52); } set { SetInt(52, (int)value); } }
+
+
+		public Vector Skill { get { return GetVector(56); } set { SetVector(56, value); } }
+		public ackvar SkillX { get { return GetVar(56); } set { SetVar(56, value); } }
+		public ackvar SkillY { get { return GetVar(60); } set { SetVar(60, value); } }
+		public ackvar SkillZ { get { return GetVar(64); } set { SetVar(64, value); } }
+
+		public ackvar Gravity { get { return GetVar(68); } set { SetVar(68, value); } }
+
+		public ackvar Angle { get { return GetVar(72); } set { SetVar(72, value); } }
+
+		public ackvar Alpha { get { return GetVar(76); } set { SetVar(76, value); } }
+
+		public Entity Creator { get { return GetEntity(80); } set { SetObject(80, value); } }
+
+
+		public Color Color { get { return GetColor(84); } set { SetColor(84, value); } }
+
+		public ackvar Blue { get { return GetVar(84); } set { SetVar(84, value); } }
+		public ackvar Green { get { return GetVar(88); } set { SetVar(88, value); } }
+
+		public ackvar Red { get { return GetVar(92); } set { SetVar(92, value); } }
+
+		public ackvar this[int id]
+		{
+			get
+			{
+				if (id < 0 || id >= 4) throw new IndexOutOfRangeException();
+				return GetVar(96 + 4 * id);
+			}
+			set
+			{
+				if (id < 0 || id >= 4) throw new IndexOutOfRangeException();
+				SetVar(96 + 4 * id, value);
+			}
+		}
+
+
+		public IntPtr D3DMesh { get { return GetPtr(112); } set { SetPtr(112, value); } }
+
+		public Material Material { get { return GetMaterial(116); } set { SetObject(116, value); } }
 	}
 }

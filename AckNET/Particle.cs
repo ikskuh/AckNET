@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AckNET
 {
-	public class Particle : EngineObject
+	public partial class Particle : EngineObject
 	{
 		internal Particle(IntPtr handle)
 			:base(false, handle)

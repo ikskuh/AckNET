@@ -1300,16 +1300,16 @@ namespace AckNET.Native
 		public static extern int EngineGetvarinfo(IntPtr param0, string param1, string param2, ref int param3);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getfunc", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern int EngineGetfunc(string param0);
+		public static extern int EngineGetFunc(string param0);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getscript", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern int EngineGetscript(string param0);
+		public static extern IntPtr EngineGetScript(string param0);
 
 		[DllImport("acknex.dll", EntryPoint="engine_getscriptinfo", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern int EngineGetscriptinfo(IntPtr param0, IntPtr param1);
+		public static extern IntPtr EngineGetScriptInfo(IntPtr param0, out IntPtr param1);
 
 		[DllImport("acknex.dll", EntryPoint="engine_gettaskinfo", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
-		public static extern int EngineGettaskinfo(int param0, IntPtr param1, ref IntPtr param2);
+		public static extern IntPtr EngineGetTaskInfo(int param0, out IntPtr param1, out IntPtr param2);
 
 		[DllImport("acknex.dll", EntryPoint="engine_callname4", CallingConvention=CallingConvention.Cdecl, CharSet=CharSet.Ansi)]
 		public static extern ackvar EngineCallname4(string param0, int param1, int param2, int param3, int param4);

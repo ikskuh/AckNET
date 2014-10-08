@@ -230,16 +230,28 @@ namespace AckNET
 		}
 
 		/// <summary>
+		/// Gets the 2D distance of the xy-plane. Z component is ignored.
+		/// </summary>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <remarks>vec_dist</remarks>
+		/// <returns></returns>
+		public static ackvar Distance2D(Vector a, Vector b)
+		{
+			a.Z = 0;
+			b.Z = 0;
+			return Native.NativeMethods.VecDist(ref a, ref b);
+		}
+
+		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="angle"></param>
-		/// <remarks>vec_for_angle</remarks>
+		/// <remarks>vec_to_angle</remarks>
 		/// <returns></returns>
-
-		public static Vector ForAngle(Angle angle)
+		public Angle ToAngle()
 		{
-			Vector result = new Vector();
-			Native.NativeMethods.VecForAngle(ref result, ref angle);
+			Angle result = new Angle();
+			Native.NativeMethods.VecToAngle(ref result, ref this);
 			return result;
 		}
 
@@ -350,6 +362,19 @@ namespace AckNET
 		public static explicit operator Vector(Angle angle)
 		{
 			return new Vector(angle.Pan, angle.Tilt, angle.Roll);
+		}
+
+		/// <summary>
+		/// Converts the angle into a directional vector.
+		/// </summary>
+		/// <remarks>vec_for_angle</remarks>
+		/// <returns></returns>
+
+		public Vector ToVector()
+		{
+			Vector result = new Vector();
+			Native.NativeMethods.VecForAngle(ref result, ref this);
+			return result;
 		}
 
 		public override string ToString()

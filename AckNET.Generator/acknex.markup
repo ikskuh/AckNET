@@ -1,0 +1,254 @@
+﻿#class Entity
+skip 12
+string ro FileName
+vector rw Position
+angle rw Rotation
+vector rw Scale Scale
+flags rw Flags EntityFlags
+var rw Frame
+var rw NextFrame
+var rw Skin
+var rw Ambient
+var rw Albedo
+var rw Alpha
+var rw LightRange
+color rw Color
+flags rw EventMask EventMask
+flags rw EventFlags EntityEFlags
+vector rw Minimum Min
+vector rw Maximum Max
+var rw TriggerRange
+var rw Push
+var ro FloorDist
+flags rw SendMask SendMask
+var ro ClientID
+index var rw 100
+var rw pose
+material rw Material
+var rw U
+var rw V
+var rw Group
+flags rw Flags2 EntityFlags2
+string ro Attachname
+event rw Event
+event rw Local
+var ro layer
+int rw VMask
+string rw String1
+string rw String2
+float ro Radius
+int ro PathIndex
+ptr ro Model
+entity ro Shadow
+entity rw Parent
+bmap ro LightMap
+ptr ro Body
+var rw ClipFactor
+
+#class AckString
+skip 12
+string ro Characters
+int ro Length
+flags ro Flags StringFlags
+skip 8
+
+#class Sound
+skip 12
+int ro Length
+ptr ro Buffer
+enum ro Type SoundType
+
+#class Bitmap
+skip 12
+int ro Width
+int ro Height
+int ro BytesPerPixel
+skip 4
+ptr ro Pixels
+enum ro Flags BitmapFlags
+ptr ro Texture
+float ro U1
+float ro V1
+float ro U2
+float ro V2
+float ro U
+float ro V
+int ro ReferenceCount
+int ro FinalWidth
+int ro FinalHeight
+int ro FinalBytesPerPixel
+int ro Pitch
+int ro FinalPitch
+int ro MipLevels
+int ro FinalFormat
+ptr ro FinalBits
+
+#class Material
+skip 12
+color rw Ambient Ambient
+color rw Diffuse Diffuse
+color rw Specular Specular
+color rw Emissive Emissive
+color rw Map Map
+var rw Alpha
+var rw Power
+var rw Albedo
+var rw Scale1
+var rw Scale2
+var rw Cycle
+index var rw 20
+skip 64
+flags rw Flags MaterialFlags
+string rw Effect
+var rw LOD
+bmap rw Skin1
+bmap rw Skin2
+bmap rw Skin3
+bmap rw Skin4
+event rw Event
+ptr ro D3DEffect
+ptr ro D3DMaterial9
+string rw Technique
+var rw MaxBones
+skip 436
+
+#class Particle
+skip 12
+var	rw LifeSpan
+vector rw Position
+vector rw Velocity Vel
+var	rw Size
+bmap rw Bitmap
+event rw Event NativeParticleEffect
+flags rw Flags ParticleFlags
+vector rw Skill Skill
+var	rw Gravity
+var	rw Angle
+var	rw Alpha
+entity ro Creator
+color rw Color
+index var rw 4
+ptr ro D3DMesh
+material rw Material
+
+#class Contact
+skip 4
+vector rw Position
+vector rw Normal Normal
+var rw U1
+var rw V1
+var rw U2
+var rw V2
+var rw Vertex
+var rw Triangle
+var rw Chunk
+ptr ro 	Model
+var rw Light
+var rw Alpha
+color rw Color
+flags rw Flags HitFlags
+entity rw Entity
+bmap rw Skin1
+bmap rw Skin2
+bmap rw Skin3
+bmap rw Skin4
+string ro TextureName
+var rw Subset
+
+#class Font
+skip 12
+int ro DX
+int ro DY
+int ro CharacterCount
+int ro CharactersPerLine
+string ro Type
+
+#class Text
+skip 12
+skip 4
+var ro Layer
+var rw PosX
+var rw PosY
+flags rw Flags TextFlags
+var rw Alpha
+var rw OffsetY
+var rw SizeY
+font rw Font
+skip 4
+skip 4
+var rw ScaleX
+var rw ScaleY
+color rw Color
+var ro Count
+bmap rw TargetMap
+skip 4
+var rw SizeX
+var rw SkillX
+var rw SkillY
+
+#class Panel
+skip 12
+skip 4
+var ro Layer
+var rw PosX
+var rw PosY
+flags rw Flags PanelFlags
+var rw Alpha
+bmap rw Bitmap
+var rw ScaleX
+var rw ScaleY
+color rw Color
+var rw SizeX
+var rw SizeY
+var rw Angle
+var rw CenterX
+var rw CenterY
+bmap rw MouseMap
+bmap rw TargetMap
+event rw Event
+var rw SkillX
+var rw SkillY
+
+#class View
+skip 12
+skip 4
+var ro Layer
+var rw PosX
+var rw PosY
+flags rw Flags ViewFlags
+var rw SizeX
+var rw SizeY
+vector rw Position
+angle rw Rotation
+var rw OffsetX
+var rw OffsetY
+var rw Arc
+var rw Aspect
+var rw Ambient
+var rw Background
+var rw Alpha
+vector rw Portal Portal
+vector rw PortalNormal PNormal
+var rw FogStart
+var rw FogEnd
+var rw Depth
+entity rw Genius
+view rw PortalView
+bmap rw Target0
+var rw ClipNear
+var rw ClipFar
+material rw Material
+view rw Stage
+skip 4
+var rw SkillX
+var rw SkillY
+var rw LOD
+var rw Left
+var rw Right
+var rw Bottom
+var rw Top
+bmap rw Target1
+bmap rw Target2
+bmap rw Target3
+
+#end

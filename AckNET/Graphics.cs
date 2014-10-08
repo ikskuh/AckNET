@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace AckNET
@@ -130,9 +131,14 @@ namespace AckNET
 		/// <param name="y"></param>
 		/// <param name="color"></param>
 		/// <remarks>draw_text</remarks>
-		public static void DrawText(string text, ackvar x, ackvar y, Color color)
+		public static void DrawText(double x, double y, Color color, string text)
 		{
 			Native.NativeMethods.DrawText(text, x, y, ref color);
+		}
+
+		public static void DrawText(double x, double y, Color color, string text, params object[] args)
+		{
+			DrawText(x, y, color, string.Format(text, args));
 		}
 
 		/// <summary>
@@ -160,7 +166,63 @@ namespace AckNET
 		{
 			return (bool)Native.NativeMethods.BmapRendertarget(bitmap, num, mode);
 		}
+
+		/// <summary>
+		/// Invokes an effect
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <param name="count"></param>
+		/// <param name="position"></param>
+		/// <param name="velocity"></param>
+		/// <remarks>effect</remarks>
+		public static void Effect(IntPtr effect, int count, Vector position, Vector velocity)
+		{
+			if (count >= 1 && effect != IntPtr.Zero)
+			{
+				Native.NativeMethods.Effect(effect, count, ref position, ref velocity);
+			}
+		}
+
+		/// <summary>
+		/// Invokes an effect
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <param name="count"></param>
+		/// <param name="position"></param>
+		/// <param name="velocity"></param>
+		/// <remarks>effect</remarks>
+		public static void Effect(ParticleEffect effect, int count, Vector position, Vector velocity)
+		{
+			if (count >= 1 && effect != null)
+			{
+				var ptr = CreateParticleEvent(effect);
+				Native.NativeMethods.Effect(ptr, count, ref position, ref velocity);
+			}
+		}
+
+		/// <summary>
+		/// Creates a wrapper around the effect delegate and returns a native function pointer to it.
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <returns></returns>
+		public static IntPtr CreateParticleEvent(ParticleEffect effect)
+		{
+			if (effect == null)
+				return IntPtr.Zero;
+			// Transpose particle pointer into engine object.
+			NativeParticleEffect native = (ptr) =>
+				{
+					Particle particle = EngineObject.Get<Particle>(ptr);
+					effect(particle);
+				};
+			return LiteC.GetMethodPointer(native);
+		}
 	}
+
+	public delegate void ParticleEffect(Particle particle);
+
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+	public delegate void NativeParticleEffect(IntPtr particle);
 
 	public enum FontMode
 	{

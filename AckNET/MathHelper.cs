@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace AckNET
 {
 	public static class MathHelper
 	{
+		static ThreadLocal<Random> rng = new ThreadLocal<Random>(() => new Random());
+
 		/// <summary>
 		/// Clamps a value into boundaries
 		/// </summary>
@@ -59,6 +62,17 @@ namespace AckNET
 		{
 			var dist = Native.NativeMethods.Accelerate(ref speed, acceleration, friction);
 			return dist;
+		}
+
+		/// <summary>
+		/// Gets a random value between min and max.
+		/// </summary>
+		/// <param name="min"></param>
+		/// <param name="max"></param>
+		/// <returns></returns>
+		public static double Random(double min, double max)
+		{
+			return min + (max - min) * rng.Value.NextDouble();
 		}
 	}
 }

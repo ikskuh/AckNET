@@ -44,7 +44,7 @@ namespace AckNET
 		public ackvar GetWidth(Font font)
 		{
 			CheckValid();
-			return Native.NativeMethods.StrWidth(this.Chars, font);
+			return Native.NativeMethods.StrWidth(this.Characters, font);
 		}
 	}
 }

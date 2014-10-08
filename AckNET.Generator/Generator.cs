@@ -12,7 +12,10 @@ namespace AckNET.Generator
 		static void Main(string[] args)
 		{
 			//GenerateFunctions();
-			GenerateEngineVars();
+			//GenerateEngineVars();
+			AckMark.Generate(
+				@"D:\projects\AckNET\AckNET.Generator\acknex.markup",
+				@"D:\projects\AckNET\AckNET\Types\Entity.cs");
 		}
 
 		struct EventDef

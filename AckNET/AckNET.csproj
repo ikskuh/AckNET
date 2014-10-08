@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Acknex.cs" />
     <Compile Include="AckString.cs" />
-    <Compile Include="AckTypes.cs" />
     <Compile Include="ackvar.cs" />
     <Compile Include="Bitmap.cs" />
     <Compile Include="Collision.cs" />
@@ -57,10 +56,11 @@
     <Compile Include="EngineVars.cs" />
     <Compile Include="EngineVars.Generated.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="EntityFlags.cs" />
+    <Compile Include="Flags.cs" />
     <Compile Include="Font.cs" />
     <Compile Include="Graphics.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="LiteC.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="Native\NativeMethods.cs" />
@@ -71,6 +71,7 @@
     <Compile Include="Scheduler.cs" />
     <Compile Include="Sound.cs" />
     <Compile Include="Text.cs" />
+    <Compile Include="Types\Entity.cs" />
     <Compile Include="Video.cs" />
     <Compile Include="View.cs" />
     <Compile Include="Wait.cs" />

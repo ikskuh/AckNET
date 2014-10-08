@@ -55,6 +55,16 @@ namespace AckNET
 		{
 			return new WaitForPredicate(predicate);
 		}
+
+		/// <summary>
+		/// Waits for a job. Can be used to wait in a job for another job.
+		/// </summary>
+		/// <param name="schedule"></param>
+		/// <returns></returns>
+		public static Wait ForSchedule(Job schedule)
+		{
+			return Wait.ForPredicate(() => schedule.IsFinished);
+		}
 	}
 
 	/// <summary>
@@ -129,7 +139,7 @@ namespace AckNET
 		public WaitForPredicate(Func<bool> predicate)
 		{
 			this.end = predicate;
-        }
+		}
 
 		protected internal override void Tick()
 		{
@@ -137,7 +147,7 @@ namespace AckNET
 				return;
 
 			finished = this.end();
-        }
+		}
 
 		public override bool IsFinished
 		{

@@ -25,7 +25,7 @@ namespace AckNET
 		/// <param name="flags"></param>
 		/// <param name="layer"></param>
 		/// <remarks>ent_createlayer</remarks>
-		public Entity(string fileName, EntitiyFlags2 flags, double layer) : 
+		public Entity(string fileName, EntityFlags2 flags, double layer) :
 			base(true, Native.NativeMethods.EntCreatelayer(fileName, (int)flags, layer))
 		{
 
@@ -60,6 +60,19 @@ namespace AckNET
 			Native.NativeMethods.EntSetskin(this.InternalPointer, skin, id);
 		}
 
+		/// <summary>
+		/// Animates the entity.
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="progress"></param>
+		/// <param name="mode"></param>
+		/// <remarks>ent_animate</remarks>
+		public void Animate(string name, double progress, AnimationMode mode)
+		{
+			CheckValid();
+			Native.NativeMethods.EntAnimate(this, name, progress, (int)mode);
+		}
+
 		public override string ToString()
 		{
 			if (this.IsValid)
@@ -81,6 +94,15 @@ namespace AckNET
 				return (EntityType)(int)Native.NativeMethods.EntType(this);
 			}
 		}
+	}
+
+	[Flags]
+	public enum AnimationMode
+	{
+		None = 0,
+		Cycle = (1 << 0),
+		Add = (1 << 1),
+		Skip = (1 << 2)
 	}
 
 	public enum EntityType
