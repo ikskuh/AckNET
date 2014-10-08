@@ -1,6 +1,7 @@
 ﻿using ClrTest.Reflection;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -60,7 +61,12 @@ namespace AckNET
 		}
 
 #if DEBUG
+
 		public static void AnalyzeWrapper()
+		{
+			AnalyzeWrapper(Console.Out);
+		}
+        public static void AnalyzeWrapper(TextWriter writer)
 		{
 			HashSet<MethodBase> allMethods = new HashSet<MethodBase>();
 			HashSet<MethodBase> methods = new HashSet<MethodBase>();
@@ -88,11 +94,11 @@ namespace AckNET
 									var attribs = instr.Method.GetCustomAttributes(typeof(DllImportAttribute), false) as DllImportAttribute[];
 									if (attribs.Length == 1)
 									{
-										Console.WriteLine("{2} -> {0}.{1}", type.Name, method.Name, attribs[0].EntryPoint);
+										writer.WriteLine("{2} -> {0}.{1}", type.Name, method.Name, attribs[0].EntryPoint);
 									}
 									else
 									{
-										Console.WriteLine("{0}.{1}", type.Name, method.Name);
+										writer.WriteLine("{0}.{1}", type.Name, method.Name);
 									}
 								}
 							}
@@ -101,7 +107,7 @@ namespace AckNET
 				}
 			}
 
-			Console.WriteLine(
+			writer.WriteLine(
 				"Wrapper Completeness: {0}/{1} = {2}%",
 				(allMethods.Count - methods.Count),
 				allMethods.Count,

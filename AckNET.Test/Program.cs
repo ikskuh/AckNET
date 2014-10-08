@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AckNET.Test
 {
@@ -12,7 +13,8 @@ namespace AckNET.Test
 	{
 		private static void Main(string[] args)
 		{
-			Acknex.AnalyzeWrapper();
+			using(var sr = new StreamWriter("../../../../documentation.txt"))
+				Acknex.AnalyzeWrapper(sr);
 
 			Application.EnableVisualStyles();
 
