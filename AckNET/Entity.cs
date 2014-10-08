@@ -94,6 +94,25 @@ namespace AckNET
 				return (EntityType)(int)Native.NativeMethods.EntType(this);
 			}
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <remarks>c_updatehull</remarks>
+		public void UpdateHull()
+		{
+			Native.NativeMethods.CUpdatehull(this, this.Frame);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <remarks>c_updatehull</remarks>
+		/// <param name="frame"></param>
+		public void UpdateHull(ackvar frame)
+		{
+			Native.NativeMethods.CUpdatehull(this, frame);
+		}
 	}
 
 	[Flags]
