@@ -10,13 +10,13 @@ namespace AckSharp
 		/// <param name="code"></param>
 		/// <remarks>font_create</remarks>
 		public Font(string code)
-			: base(true, Native.NativeMethods.FontCreate(code))
+			: base(ObjectType.Font, true, Native.NativeMethods.FontCreate(code))
 		{
 
 		}
 
 		internal Font(IntPtr handle)
-			: base(false, handle)
+			: base(ObjectType.Font, false, handle)
 		{
 
 		}

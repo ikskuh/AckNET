@@ -47,10 +47,28 @@ namespace AckSharp
 			}
 		}
 
-		internal EngineObject(bool userCreated, IntPtr ptr)
+		readonly CLink link;
+
+		protected EngineObject(ObjectType type, bool userCreated, IntPtr ptr)
 		{
 			if (ptr == IntPtr.Zero)
 				throw new ArgumentException("Cannot create an object with an invalid pointer.");
+
+			this.link = new CLink(ptr);
+
+			Func<ObjectType, bool> isEntity = ent => ent == ObjectType.Entity || ent == ObjectType.EntityLayer || ent == ObjectType.EntityLocal;
+
+			if (isEntity(this.link.Type) && isEntity(type))
+			{
+				// All fine!
+			}
+			else
+			{
+				if (this.link.Type != type)
+				{
+					throw new ArgumentException("The provided pointer was of CLink type " + this.link.Type + " but the requested type is " + type);
+				}
+			}
 
 			if (IsUserCreated && registry.ContainsKey(ptr))
 			{
@@ -81,8 +99,14 @@ namespace AckSharp
 		public void Remove()
 		{
 			CheckValid();
+			this.RemoveFromRegistry();
 			Native.NativeMethods.PtrRemove(this);
 			this.InternalPointer = IntPtr.Zero;
+		}
+
+		internal void RemoveFromRegistry()
+		{
+			registry.Remove(this.InternalPointer);
 		}
 
 		public static implicit operator IntPtr(EngineObject obj)
@@ -93,15 +117,24 @@ namespace AckSharp
 				return obj.InternalPointer;
 		}
 
+		/// <summary>
+		/// Gets the CLink of this object.
+		/// </summary>
+		/// <returns></returns>
+		public CLink CLink
+		{
+			get { return this.link; }
+		}
+
 		protected ackvar GetVar(int offset)
 		{
 			CheckValid();
-			return new ackvar(Marshal.ReadInt32(InternalPointer + offset));
+			return new ackvar(Marshal.ReadInt32(InternalPointer, offset));
 		}
 		protected void SetVar(int offset, ackvar @var)
 		{
 			CheckValid();
-			Marshal.WriteInt32(InternalPointer + offset, @var.RawValue);
+			Marshal.WriteInt32(InternalPointer, offset, @var.RawValue);
 		}
 
 		protected Vector GetVector(int offset)
@@ -291,7 +324,7 @@ namespace AckSharp
 		protected class NativeString
 		{
 			public IntPtr Pointer { get; private set; }
-			public int Length { get; private set;  }
+			public int Length { get; private set; }
 
 			public NativeString()
 			{

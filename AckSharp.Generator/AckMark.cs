@@ -253,10 +253,24 @@ namespace AckSharp.Generator
 			this.writer.WriteLine("namespace AckSharp");
 			this.writer.WriteLine("{");
 			this.writer.WriteLine("using System;");
+
+			bool isComment = false;
 			while (!this.reader.EndOfStream && this.stopped == false)
 			{
 				var line = cleanup.Replace(this.reader.ReadLine(), " ").Trim();
 				if (line.Length == 0)
+					continue;
+
+				if(line == "#comment")
+				{
+					isComment = true;
+                }
+				if (line == "#endcomment")
+				{
+					isComment = false;
+				}
+
+				if (isComment)
 					continue;
 
 				string result = null;

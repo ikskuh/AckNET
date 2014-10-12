@@ -13,13 +13,13 @@ namespace AckSharp
 		/// <param name="initalValue"></param>
 		/// <remarks>str_create</remarks>
 		public AckString(string initalValue)
-			: base(true, Native.NativeMethods.StrCreate(initalValue))
+			: base(ObjectType.String, true, Native.NativeMethods.StrCreate(initalValue))
 		{
 
 		}
 
 		public AckString(IntPtr handle)
-			: base(false, handle)
+			: base(ObjectType.String, false, handle)
 		{
 
 		}

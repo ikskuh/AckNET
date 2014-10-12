@@ -54,7 +54,7 @@ namespace AckSharp.Test
 				Height = 25,
 				Text = "Click me!",
 			};
-			btn.Click += (s, e) => { MessageBox.Show(tb.Text); };
+			btn.Click += (s, e) => { MessageBox.Show(tb.Text); ent.Remove(); };
 
 			host.Controls.Add(btn);
 

@@ -13,13 +13,13 @@ namespace AckSharp
 		/// <param name="layer"></param>
 		/// <remarks>view_create</remarks>
 		public View(ackvar layer)
-			: base(true, Native.NativeMethods.ViewCreate(layer))
+			: base(ObjectType.View, true, Native.NativeMethods.ViewCreate(layer))
 		{
 
 		}
 
 		internal View(IntPtr handle)
-			 : base(false, handle)
+			 : base(ObjectType.View, false, handle)
 		{
 
 		}

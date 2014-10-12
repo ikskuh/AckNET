@@ -47,6 +47,7 @@
     <Compile Include="AckString.cs" />
     <Compile Include="ackvar.cs" />
     <Compile Include="Bitmap.cs" />
+    <Compile Include="CLink.cs" />
     <Compile Include="Collision.cs" />
     <Compile Include="CollisionFlags.cs" />
     <Compile Include="Color.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="EngineEventArgs.cs" />
     <Compile Include="EngineObject.cs" />
     <Compile Include="EngineVars.cs" />
+    <Compile Include="EntityEventArgs.cs" />
     <Compile Include="Generated\EngineVars.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Flags.cs" />

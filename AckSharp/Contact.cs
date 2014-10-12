@@ -5,10 +5,9 @@ using System.Text;
 
 namespace AckSharp
 {
-	public sealed partial class Contact : EngineObject
+	public sealed partial class Contact
 	{
 		internal Contact(IntPtr handle)
-			: base(false, handle)
 		{
 
 		}

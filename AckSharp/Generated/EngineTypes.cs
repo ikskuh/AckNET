@@ -350,62 +350,6 @@ public IntPtr D3DMesh { get { return GetPtr(112); } }
 public Material Material { get { return Get<Material>(116); } set { Set(116, value); } }
 
 }
-partial class Contact
-{
-
-
-public Vector Position { get { return GetVector(4); } set { SetVector(4, value); } }
-public ackvar X { get { return GetVar(4); } set { SetVar(4, value); } }
-public ackvar Y { get { return GetVar(8); } set { SetVar(8, value); } }
-public ackvar Z { get { return GetVar(12); } set { SetVar(12, value); } }
-
-public Vector Normal { get { return GetVector(16); } set { SetVector(16, value); } }
-public ackvar NormalX { get { return GetVar(16); } set { SetVar(16, value); } }
-public ackvar NormalY { get { return GetVar(20); } set { SetVar(20, value); } }
-public ackvar NormalZ { get { return GetVar(24); } set { SetVar(24, value); } }
-
-public ackvar U1 { get { return GetVar(28); } set { SetVar(28, value); } }
-
-public ackvar V1 { get { return GetVar(32); } set { SetVar(32, value); } }
-
-public ackvar U2 { get { return GetVar(36); } set { SetVar(36, value); } }
-
-public ackvar V2 { get { return GetVar(40); } set { SetVar(40, value); } }
-
-public ackvar Vertex { get { return GetVar(44); } set { SetVar(44, value); } }
-
-public ackvar Triangle { get { return GetVar(48); } set { SetVar(48, value); } }
-
-public ackvar Chunk { get { return GetVar(52); } set { SetVar(52, value); } }
-
-public IntPtr Model { get { return GetPtr(56); } }
-
-public ackvar Light { get { return GetVar(60); } set { SetVar(60, value); } }
-
-public ackvar Alpha { get { return GetVar(64); } set { SetVar(64, value); } }
-
-public Color Color { get { return GetColor(68); } set { SetColor(68, value); } }
-public ackvar Red { get { return GetVar(68); } set { SetVar(68, value); } }
-public ackvar Green { get { return GetVar(72); } set { SetVar(72, value); } }
-public ackvar Blue { get { return GetVar(76); } set { SetVar(76, value); } }
-
-public HitFlags Flags { get { return (HitFlags)GetInt(80); } set { SetInt(80, (int)value); } }
-
-public Entity Entity { get { return Get<Entity>(84); } set { Set(84, value); } }
-
-public Bitmap Skin1 { get { return Get<Bitmap>(88); } set { Set(88, value); } }
-
-public Bitmap Skin2 { get { return Get<Bitmap>(92); } set { Set(92, value); } }
-
-public Bitmap Skin3 { get { return Get<Bitmap>(96); } set { Set(96, value); } }
-
-public Bitmap Skin4 { get { return Get<Bitmap>(100); } set { Set(100, value); } }
-
-public string TextureName { get { return GetString(104); } }
-
-public ackvar Subset { get { return GetVar(108); } set { SetVar(108, value); } }
-
-}
 partial class Font
 {
 

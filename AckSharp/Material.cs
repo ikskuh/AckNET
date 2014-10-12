@@ -12,13 +12,13 @@ namespace AckSharp
 		/// </summary>
 		/// <remarks>mtl_create</remarks>
 		public Material()
-			: base(true, Native.NativeMethods.MtlCreate())
+			: base(ObjectType.Material, true, Native.NativeMethods.MtlCreate())
 		{
 
 		}
 
 		internal Material(IntPtr reference)
-			: base(false, reference)
+			: base(ObjectType.Material, false, reference)
 		{
 		}
 

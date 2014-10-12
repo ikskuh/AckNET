@@ -8,7 +8,7 @@ namespace AckSharp
 	public partial class Particle : EngineObject
 	{
 		internal Particle(IntPtr handle)
-			:base(false, handle)
+			:base(ObjectType.Particle, false, handle)
 		{
 
 		}

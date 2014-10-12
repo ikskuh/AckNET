@@ -8,14 +8,31 @@ namespace AckSharp
 	public sealed partial class Entity : EngineObject
 	{
 		/// <summary>
+		/// Gets invoked when the entity is removed.
+		/// </summary>
+		public event EventHandler<EntityEventArgs> Removed;
+
+		/// <summary>
+		/// Triggers the Removed event.
+		/// </summary>
+		internal void Destroy()
+		{
+			if (this.Removed != null)
+				this.Removed(this, new EntityEventArgs(this));
+			this.RemoveFromRegistry();
+			this.InternalPointer = IntPtr.Zero; // The entity got destroyed.
+		}
+
+		/// <summary>
 		///
 		/// </summary>
 		/// <param name="fileName"></param>
 		/// <param name="position"></param>
 		/// <remarks>ent_create</remarks>
 		public Entity(string fileName, Vector position)
-			 : base(true, Native.NativeMethods.EntCreate(fileName, ref position, IntPtr.Zero))
+			 : base(ObjectType.Entity, true, Native.NativeMethods.EntCreate(fileName, ref position, IntPtr.Zero))
 		{
+
 		}
 
 		/// <summary>
@@ -26,13 +43,13 @@ namespace AckSharp
 		/// <param name="layer"></param>
 		/// <remarks>ent_createlayer</remarks>
 		public Entity(string fileName, EntityFlags2 flags, double layer) :
-			base(true, Native.NativeMethods.EntCreatelayer(fileName, (int)flags, layer))
+			base(ObjectType.EntityLayer, true, Native.NativeMethods.EntCreatelayer(fileName, (int)flags, layer))
 		{
 
 		}
 
 		internal Entity(IntPtr reference)
-			: base(false, reference)
+			: base(ObjectType.Entity, false, reference)
 		{
 		}
 

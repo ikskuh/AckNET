@@ -13,7 +13,7 @@ namespace AckSharp
 		/// <param name="fileName"></param>
 		/// <remarks>bmap_create</remarks>
 		public Bitmap(string fileName)
-			: base(true, Native.NativeMethods.BmapCreate(fileName))
+			: base(ObjectType.Bitmap, true, Native.NativeMethods.BmapCreate(fileName))
 		{
 
 		}
@@ -26,13 +26,13 @@ namespace AckSharp
 		/// <param name="format"></param>
 		/// <remarks>bmap_createblack</remarks>
 		public Bitmap(int width, int height, int format)
-			: base(true, Native.NativeMethods.BmapCreateblack(width, height, format))
+			: base(ObjectType.Bitmap, true, Native.NativeMethods.BmapCreateblack(width, height, format))
 		{
 
 		}
 
 		internal Bitmap(IntPtr handle)
-			: base(false, handle)
+			: base(ObjectType.Bitmap, false, handle)
 		{
 
 		}

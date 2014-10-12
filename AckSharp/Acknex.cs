@@ -30,12 +30,13 @@ namespace AckSharp
 
 		public static void Run(SchedulableMethod mainMethod, string commandLine)
 		{
-			Acknex.Open(commandLine);
+			if (!Acknex.Open(commandLine))
+				return;
 
 			Scheduler scheduler = new Scheduler();
 			scheduler.Start(mainMethod);
 
-			while (Acknex.Frame() && scheduler.Update()) ;
+			while (scheduler.Update() && Acknex.Frame()) ;
 
 			Acknex.Close();
 		}
@@ -51,6 +52,11 @@ namespace AckSharp
 			if (EngineVars.InternalPointer != IntPtr.Zero)
 			{
 				EngineVars.InitializeEvents();
+				EngineVars.OnEntRemove += (s, e) =>
+				{
+					var entity = e.Param.To<Entity>();
+					entity.Destroy();
+                };
 			}
 			return EngineVars.InternalPointer != IntPtr.Zero;
 		}

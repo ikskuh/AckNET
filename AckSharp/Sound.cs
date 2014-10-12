@@ -13,13 +13,13 @@ namespace AckSharp
 		/// <param name="fileName"></param>
 		/// <remarks>snd_create</remarks>
 		public Sound(string fileName)
-			: base(true, Native.NativeMethods.SndCreate(fileName))
+			: base(ObjectType.Sound, true, Native.NativeMethods.SndCreate(fileName))
 		{
 
 		}
 
 		internal Sound(IntPtr handle)
-			: base(false, handle)
+			: base(ObjectType.Sound, false, handle)
 		{
 		}
 

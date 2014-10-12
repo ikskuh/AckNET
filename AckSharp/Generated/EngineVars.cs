@@ -1910,7 +1910,9 @@ namespace AckSharp
 		public static Bitmap RenderLightmap { get { return Get<Bitmap>(2544); } set { SetObject(2544, value); } }
 
 		// ENGINE_CONTACT hit;
-		public static Contact Hit { get { return Get<Contact>(2552); } set { SetObject(2552, value); } }
+
+			// TODO: Implement Contact
+		// public static Contact Hit { get { return Get<Contact>(2552); } set { SetObject(2552, value); } }
 
 		// ENGINE_ float* matTexture;
 		public static IntPtr MatTexture { get { return GetPtr(2556); } set { SetPtr(2556, value); } }

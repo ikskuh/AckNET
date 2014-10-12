@@ -131,29 +131,31 @@ index var rw 4
 ptr ro D3DMesh
 material rw Material
 
-#class Contact
-skip 4
-vector rw Position
-vector rw Normal Normal
-var rw U1
-var rw V1
-var rw U2
-var rw V2
-var rw Vertex
-var rw Triangle
-var rw Chunk
-ptr ro 	Model
-var rw Light
-var rw Alpha
-color rw Color
-flags rw Flags HitFlags
-entity rw Entity
-bmap rw Skin1
-bmap rw Skin2
-bmap rw Skin3
-bmap rw Skin4
-string ro TextureName
-var rw Subset
+#comment
+	#class Contact
+	skip 4
+	vector rw Position
+	vector rw Normal Normal
+	var rw U1
+	var rw V1
+	var rw U2
+	var rw V2
+	var rw Vertex
+	var rw Triangle
+	var rw Chunk
+	ptr ro 	Model
+	var rw Light
+	var rw Alpha
+	color rw Color
+	flags rw Flags HitFlags
+	entity rw Entity
+	bmap rw Skin1
+	bmap rw Skin2
+	bmap rw Skin3
+	bmap rw Skin4
+	string ro TextureName
+	var rw Subset
+#endcomment
 
 #class Font
 skip 12

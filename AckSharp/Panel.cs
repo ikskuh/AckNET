@@ -8,13 +8,13 @@ namespace AckSharp
 	public sealed partial class Panel : EngineObject
 	{
 		internal Panel(IntPtr handle)
-			:base(false, handle)
+			:base(ObjectType.Panel, false, handle)
 		{
 
 		}
 
 		public Panel(int layer) : 
-			base(true, Native.NativeMethods.PanCreate("", layer))
+			base(ObjectType.Panel, true, Native.NativeMethods.PanCreate("", layer))
 		{
 
 		}

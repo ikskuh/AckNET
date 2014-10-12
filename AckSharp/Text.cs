@@ -14,13 +14,13 @@ namespace AckSharp
 		/// <param name="layer"></param>
 		/// <remarks>txt_create</remarks>
 		public Text(ackvar stringCount, ackvar layer)
-			: base(true, Native.NativeMethods.TxtCreate(stringCount, layer))
+			: base(ObjectType.Text, true, Native.NativeMethods.TxtCreate(stringCount, layer))
 		{
 
 		}
 
 		internal Text(IntPtr handle)
-			: base(false, handle)
+			: base(ObjectType.Text, false, handle)
 		{
 
 		}

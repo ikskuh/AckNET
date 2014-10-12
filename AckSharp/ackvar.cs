@@ -14,6 +14,17 @@ namespace AckSharp
 			this.RawValue = raw;
 		}
 
+		public T To<T>()
+			where T : EngineObject
+		{
+			return EngineObject.Get<T>(this.ToIntPtr());
+		}
+
+		public IntPtr ToIntPtr()
+		{
+			return new IntPtr(this.RawValue);
+		}
+
 		public static ackvar operator +(ackvar a, ackvar b)
 		{
 			return new ackvar(a.RawValue + b.RawValue);
